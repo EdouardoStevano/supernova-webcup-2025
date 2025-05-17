@@ -1,0 +1,24 @@
+/* style.css */
+.inner {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-in,
+.slide-out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #b0ad98;
+    z-index: 1000;
+}
+
+.slide-in {
+    transform-origin: bottom;
+}
+
+.slide-out {
+    transform-origin: top;
+}

@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client'; // React 18 utilise createRoot
+import './styles/index.css';
+import RoutesConfig from './core/routes/index.jsx';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import './config/translation/i18n.js';
+import 'driver.js/dist/driver.css';
+
+// Provider
+import { ToastProvider } from './presentation/components/common/superToast';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <StrictMode>
+        <ToastProvider>
+            <RoutesConfig />
+        </ToastProvider>
+    </StrictMode>
+);
