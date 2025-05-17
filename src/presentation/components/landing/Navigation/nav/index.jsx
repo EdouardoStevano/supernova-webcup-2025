@@ -11,28 +11,28 @@ import Image1 from '../../../../assets/illustrations/auth1.jpg';
 
 const links = [
     {
-        title: 'Home',
-        href: '/',
+        title: 'Accuil',
+        href: '#home',
         src: Image1,
     },
     {
-        title: 'Shop',
-        href: '/shop',
+        title: 'A propos',
+        href: '#presentation',
         src: 'shop.png',
     },
     {
-        title: 'About Us',
-        href: '/about',
+        title: 'Explorez',
+        href: '#working',
         src: Image1,
     },
     {
-        title: 'Lookbook',
-        href: '/lookbook',
+        title: 'Testimoniale',
+        href: '#testy',
         src: Image1,
     },
     {
         title: 'Contact',
-        href: '/contact',
+        href: '#contact',
         src: Image1,
     },
 ];

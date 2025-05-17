@@ -14,11 +14,11 @@ const Preload = () => {
         // Animate loading progress from 0 to 100
         const progressInterval = setInterval(() => {
             setLoadingProgress((prev) => {
-                if (prev >= 100) {
+                if (prev >= 10) {
                     clearInterval(progressInterval);
                     // Start animation after reaching 100%
                     requestAnimationFrame(animate);
-                    return 100;
+                    return 10;
                 }
                 return prev + 1;
             });
@@ -72,9 +72,9 @@ const Preload = () => {
                 Novawold
             </span>
 
-            <span className="absolute right-20 bottom-[30%] text-9xl font-extrabold text-white/60">
+            {/* <span className="absolute right-20 bottom-[30%] text-9xl font-extrabold text-white/60">
                 {loadingProgress}%
-            </span>
+            </span> */}
             <svg>
                 <path ref={path}></path>
             </svg>

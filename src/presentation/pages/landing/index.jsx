@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import ScrollToTop from '../../components/landing/scrollToTop/scrollToTop';
 import Navbar from './layouts/Navbar';
-import AnimatedCursor from '../../components/common/cursor';
 import BottomMenu from './layouts/bottomMenu';
 import EcoIndex from './layouts/ecoIndex';
+import StickyFooter from '../../components/landing/stickyfooter/stickyFooter';
+// import Preload from '../../components/preload';
 
 /**
  *
@@ -14,19 +15,11 @@ const Landing = () => {
         <div className="pointBackground dark:bg-gray-900">
             <ScrollToTop />
             {/* <Preload /> */}
-            <AnimatedCursor />
             <BottomMenu />
             <EcoIndex />
 
-            {/* <div className="bg-red-600">
-                Test
-                <div id="ecoindex-badge" data-theme="dark">
-                    Test
-                </div>
-            </div> */}
-
             <Navbar />
-            <div className="gradientBack1 h-[300vh]">
+            <div className="gradientBack1">
                 <Outlet />
             </div>
         </div>

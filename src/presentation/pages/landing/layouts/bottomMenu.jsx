@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 // Custom hook for tracking mouse position
 const useMousePosition = () => {
@@ -31,6 +32,8 @@ const BottomMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const mousePosition = useMousePosition();
 
+    const { t } = useTranslation();
+
     return (
         <div className="fixed right-10 bottom-10 z-50">
             <div className="relative">
@@ -48,7 +51,7 @@ const BottomMenu = () => {
                             className="h-6 w-6"
                         />
                     </div>
-                    Ce qu'on vous propose
+                    {t('floatBtn.title')}
                     <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
@@ -86,11 +89,11 @@ const BottomMenu = () => {
                                         x: mousePosition.x * 0.05,
                                         gap: `${8 + mousePosition.y * 0.02}px`,
                                         transition: {
-                                            duration: 0.3,
+                                            duration: 0.2,
                                             delay: index * 0.05,
                                             type: 'spring',
                                             stiffness: 50,
-                                            damping: 20,
+                                            damping: 5,
                                         },
                                     }}
                                     exit={{

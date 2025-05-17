@@ -28,7 +28,7 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
             {links.map((link, index) => {
                 const { title, href } = link;
                 return (
-                    <Link key={`l_${index}`} to={href}>
+                    <a key={`l_${index}`} href="#contact">
                         <motion.p
                             onMouseOver={() => {
                                 setSelectedLink({ isActive: true, index });
@@ -37,18 +37,19 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
                                 setSelectedLink({ isActive: false, index });
                             }}
                             variants={blur}
-                            animate={
-                                selectedLink.isActive &&
-                                selectedLink.index != index
-                                    ? 'open'
-                                    : 'closed'
-                            }
+                            // animate={
+                            //     selectedLink.isActive &&
+                            //     selectedLink.index != index
+                            //         ? 'open'
+                            //         : 'closed'
+                            // }
                         >
                             {getChars(title)}
                         </motion.p>
-                    </Link>
+                    </a>
                 );
             })}
+            <a href="#contact">Test</a>
         </div>
     );
 }

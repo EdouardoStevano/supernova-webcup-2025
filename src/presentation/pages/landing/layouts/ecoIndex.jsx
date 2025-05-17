@@ -5,7 +5,7 @@ const EcoIndex = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="fixed bottom-5 left-5">
+        <div className="fixed bottom-5 left-5 z-20">
             <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}

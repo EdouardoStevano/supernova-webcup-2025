@@ -207,3 +207,32 @@ section {
     background-size: cover;
     background-position: center;
 }
+
+.mask-gradient {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, white 30%);
+    mask-image: linear-gradient(to bottom, transparent 0%, white 30%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+/* .lineMask p {
+    margin: 0px;
+
+    font-weight: 700;
+} */
+.lineMask {
+    overflow: hidden;
+}
+
+.line-back {
+    background-image: url('../presentation/assets//illustrations/backLine.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @media (min-width: 3200px) {
+        background-image: none;
+    }
+}

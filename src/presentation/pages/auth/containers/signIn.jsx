@@ -87,7 +87,7 @@ const SignIn = () => {
 
     return (
         <div
-            className="sign-in pointBackground flex h-screen flex-row bg-transparent dark:bg-gray-900"
+            className="sign-in pointBackground flex h-screen cursor-auto flex-row bg-transparent dark:bg-gray-900"
             onKeyDown={handleKeyDown}
         >
             <div className="sign-in-right gradientBack1 flex h-screen w-full flex-col justify-between px-9 py-4">
@@ -103,7 +103,7 @@ const SignIn = () => {
                         <p className="ml-2 flex flex-col text-[18px]">
                             <span className="first-letter font-Poppins text-center font-extrabold text-slate-800">
                                 {/* {process.env.REACT_APP_PROJECT_NAME} */}
-                                TEST
+                                TheEndPage
                             </span>
                             <span className="text-[10px]">by Supernova</span>
                         </p>
@@ -154,8 +154,9 @@ const SignIn = () => {
                                             startOffset="50%"
                                             textAnchor="middle"
                                         >
-                                            Your Circular Text Here - Your
-                                            Circular Text - Your CircularText
+                                            Une sortie propre, une page sale (ou
+                                            l’inverse). L’art de claquer la
+                                            porte avec style
                                         </textPath>
                                     </text>
                                 </svg>
@@ -173,7 +174,7 @@ const SignIn = () => {
                     <div className="sign-form swipeFadeUp mx-auto w-[90%] rounded-2xl p-6 lg:w-[35%]">
                         <div className="sign-in-title font-poppins mx-auto mb-4 text-center">
                             <h2 className="font-poppins text-xl font-semibold text-slate-700 dark:text-slate-200">
-                                {t('navbar.home')}
+                                {t('banner.welcome')}
                             </h2>
                             <h1 className="font-syne mt-1 w-full bg-gradient-to-r from-red-600 to-blue-500 bg-clip-text text-6xl font-bold text-slate-800 text-transparent md:text-[76px] dark:text-slate-200">
                                 TheEndAct

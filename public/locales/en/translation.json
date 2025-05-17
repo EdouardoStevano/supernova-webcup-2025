@@ -1,21 +1,135 @@
 {
     "navbar": {
+        "subtext": "Create stylish goodbye pages",
+        "signIn:": "Sign In",
+        "signIntext:": "I'm outta here",
+        "theme": "Dark Mode",
+        "carte": "Card",
         "home": "Home",
-        "carte": "Map",
-        "simulation": "Simulation",
-        "school": "School",
-        "maladie": "Disease",
-        "actu": "News",
-        "signIn": "Sign In",
-        "dec": "Waste Recovery",
-        "mode": "Dark Mode"
+        "about": "About",
+        "explore": "Explore",
+        "testi": "Testimonials",
+        "contact": "Contact"
     },
-
+    "floatBtn": {
+        "title": "Turn the page, but write it first",
+        "subtext": "Create stylish goodbye pages",
+        "ecotext": "Our commitment to environmental sustainability and eco-friendly practices helps create a better future for our planet."
+    },
+    "marquee": {
+        "text": "💫 Last Act — Turn your exits into creative statements. Create stylish goodbye pages to mark your farewells — whether professional, personal, or digital. 💫"
+    },
+    "about": {
+        "parasmall": "Each page here is a final act, a stylish farewell, a confession or a rebellion.",
+        "title": "Boom. Bye. Period.",
+        "para": "This is the hall of fame of exits. Spicy, touching, sometimes awkward pages... but always authentic. Guaranteed clicks, guaranteed drama. Come see how to slam the door in style. These pages tell stories of departure. Some peaceful, some abrupt, but all driven by a desire to leave a mark, a trace. Because behind every ending, there's a story.",
+        "btn": "View the hall of fame"
+    },
     "banner": {
-        "Title": "Innovation",
-        "Title1": "at the service",
-        "Title2": "of your health",
-        "para1": "In an era where health and technology converge, we believe in innovation that puts humans at the heart of progress. Our intelligent solutions smartly integrate the latest advances to offer precise, accessible tools",
-        "btn": "Explore our world"
+        "welcome": "Welcome to",
+        "para1": "When everything ends, there’s always something to say. Through TheEnd.page, users create stylish goodbye pages where emotions, memories, and last jabs come to life. Because sometimes, slamming the door is also making a statement.",
+        "btn": "Discover More"
+    },
+    "solutionSection": {
+        "title": "Your end, your style, our solution",
+        "description": "TheEnd.page is more than just a page generator. It’s an interactive platform that lets each user turn a breakup or exit into a creative and personal act.",
+        "cards": {
+            "models": {
+                "title": "Inspiring page templates",
+                "description": "A library of predefined styles for those who want to leave in style, without starting from scratch.",
+                "link": "Learn more"
+            },
+            "link": {
+                "title": "A shareable link",
+                "description": "Each goodbye page comes with a unique URL, easy to send to colleagues, exes, project partners, or friends. Endings are meant to be shared!",
+                "link": "Learn more"
+            },
+            "ai": {
+                "title": "AI Assistance",
+                "description": "AI helps you choose from predefined templates that match your vibe: 'Gentle Goodbye', 'Rage Quit', 'Stylish Exit', etc.",
+                "link": "Learn more"
+            }
+        },
+        "footer": {
+            "quote": "Because there’s always something to say... before leaving."
+        }
+    },
+    "hori": {
+        "title": "Words of the end",
+        "para": "Behind every ending, there's a story. Here are those brave enough to write and share theirs. Honest, angry, funny, or moving — every goodbye matters."
+    },
+    "exitPagesSection": {
+        "title": "Slam the door, but leave your mark",
+        "description": "They left, but their page remained. Discover masterpieces of drama, sarcasm, poetry, or pure nonsense. Laughter, tears, and secondhand embarrassment guaranteed. Some exits are louder than others...",
+        "cards": {
+            "futureChronicles": {
+                "title": "The Future Chronicles",
+                "description": "An interstellar adventure in a world where time bends to human emotions.",
+                "studio": "Mada Films",
+                "date": "May 17, 2025",
+                "button": "Watch"
+            },
+            "lastSilence": {
+                "title": "The Last Silence",
+                "description": "A psychological thriller about the power of secrets in a too-chatty world.",
+                "studio": "Silencio Studio",
+                "date": "June 2, 2025",
+                "button": "Watch"
+            },
+            "digitalRebirth": {
+                "title": "Digital Rebirth",
+                "description": "When artificial intelligence discovers human poetry.",
+                "studio": "NeoVerse Production",
+                "date": "July 20, 2025",
+                "button": "Watch"
+            }
+        }
+    },
+    "partener": "Partner",
+    "testimo": {
+        "tite": "They left — and shined",
+        "para": "With TheEnd.page, these users turned their exits into unforgettable moments — sometimes funny, sometimes touching, sometimes explosive. Here are their stories, their pages, and their words. Because a great exit deserves to be told."
+    },
+    "testimo-items": [
+        {
+            "name": "Camille R. — former HR collaborator",
+            "date": "March 19, 2025",
+            "text": "I wanted to avoid the awkward goodbye party… My page went viral in the office within 15 minutes. We still laugh about it in the WhatsApp group!"
+        },
+        {
+            "name": "Lucas T. — burned-out freelancer",
+            "date": "March 15, 2025",
+            "text": "TheEnd.page helped me say goodbye to a toxic client with irony… and a playlist. It was freeing. And classy."
+        },
+        {
+            "name": "Lucas T. — burned-out freelancer",
+            "date": "March 10, 2025",
+            "text": "TheEnd.page helped me say goodbye to a toxic client with irony… and a playlist. It was freeing. And classy."
+        },
+        {
+            "name": "Sophie D. — former Discord member",
+            "text": "I left a server that was getting out of hand. My goodbye page? 100% passive-aggressive, 100% me."
+        },
+        {
+            "name": "Jonathan B. — tired fullstack dev",
+            "date": "March 10, 2025",
+            "text": "AI gave me the best punchlines for my resignation. My page was shared 62 times. I’m a legend in the open space."
+        },
+        {
+            "name": "Mélanie P. — peacefully single",
+            "date": "March 15, 2025",
+            "text": "I used TheEnd.page to close the chapter with my ex. I said everything I needed… with poetry and humor. Even he liked it."
+        },
+        {
+            "name": "Maria Lee",
+            "date": "March 10, 2025",
+            "text": "I used TheEnd.page to close the chapter with my ex. I said everything I needed… with poetry and humor. Even he liked it."
+        }
+    ],
+    "contact": {
+        "title": "Throw a message in a bottle",
+        "para": "Want to send a final message or a random quote? Go for it. We love surprises.",
+        "Name": "Name",
+        "send": "Send"
     }
 }
