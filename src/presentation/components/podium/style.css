@@ -1,0 +1,45 @@
+@keyframes fall {
+    0% { top: -10%; opacity: 0.3; }
+    100% { top: 100%; opacity: 0; }
+}
+@keyframes cloudMove {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(250%); }
+}
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+.cloud {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+.cloud img{
+    width : 100px;
+}
+.cloud1 {
+    width: 80px;
+    height: 40px;
+    top: 20%;
+    left: -60px;
+    animation: cloudMove 10s linear infinite;
+}
+.cloud2 {
+    width: 60px;
+    height: 30px;
+    top: 40%;
+    left: -80px;
+    animation: cloudMove 13s linear infinite;
+}
+.raindrop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: #4a4a4a55;
+    top: 0;
+    animation: fall 2s linear infinite;
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Alice Dupont",
+    "emotion": "Soulagée",
+    "description": "A quitté son emploi toxique avec grâce.",
+    "positive": 120,
+    "negative": 5
+  },
+  {
+    "name": "Bruno Martin",
+    "emotion": "Motivé",
+    "description": "A quitté pour lancer sa propre start-up.",
+    "positive": 105,
+    "negative": 10
+  },
+  {
+    "name": "Claire Renault",
+    "emotion": "Triste",
+    "description": "A quitté une équipe qu'elle adorait.",
+    "positive": 95,
+    "negative": 20
+  },
+  {
+    "name": "David Petit",
+    "emotion": "Soulagé",
+    "description": "A quitté après un burn-out évité de justesse.",
+    "positive": 90,
+    "negative": 12
+  },
+  {
+    "name": "Emma Laurent",
+    "emotion": "Motivée",
+    "description": "A quitté pour voyager autour du monde.",
+    "positive": 85,
+    "negative": 15
+  },
+  {
+    "name": "Fabien Morel",
+    "emotion": "Déterminé",
+    "description": "A quitté pour reprendre ses études.",
+    "positive": 88,
+    "negative": 9
+  },
+  {
+    "name": "Gisèle Robin",
+    "emotion": "Apaisée",
+    "description": "A quitté un poste trop stressant.",
+    "positive": 78,
+    "negative": 6
+  },
+  {
+    "name": "Hugo Bernard",
+    "emotion": "Excité",
+    "description": "A quitté pour un nouveau poste à l’étranger.",
+    "positive": 110,
+    "negative": 8
+  },
+  {
+    "name": "Inès Faure",
+    "emotion": "Nostalgique",
+    "description": "A quitté après 10 ans dans la même entreprise.",
+    "positive": 70,
+    "negative": 14
+  },
+  {
+    "name": "Julien Lefèvre",
+    "emotion": "Frustré",
+    "description": "A quitté à cause d’un manque de reconnaissance.",
+    "positive": 65,
+    "negative": 25
+  },
+  {
+    "name": "Karima Boucher",
+    "emotion": "Libérée",
+    "description": "A quitté un environnement sexiste.",
+    "positive": 130,
+    "negative": 4
+  },
+  {
+    "name": "Loïc Dubois",
+    "emotion": "Serein",
+    "description": "A quitté en bons termes pour changer de voie.",
+    "positive": 92,
+    "negative": 7
+  },
+  {
+    "name": "Mélanie Girard",
+    "emotion": "Optimiste",
+    "description": "A quitté pour se lancer dans l’artisanat.",
+    "positive": 84,
+    "negative": 6
+  },
+  {
+    "name": "Nicolas Lemaitre",
+    "emotion": "Indécis",
+    "description": "A quitté sans plan précis, en quête de sens.",
+    "positive": 55,
+    "negative": 30
+  },
+  {
+    "name": "Océane Vidal",
+    "emotion": "Heureuse",
+    "description": "A quitté pour fonder une famille.",
+    "positive": 98,
+    "negative": 3
+  },
+  {
+    "name": "Paul Caron",
+    "emotion": "Épuisé",
+    "description": "A quitté après des mois de surcharge.",
+    "positive": 60,
+    "negative": 20
+  },
+  {
+    "name": "Quentin Noël",
+    "emotion": "Ambitieux",
+    "description": "A quitté pour monter un projet social.",
+    "positive": 102,
+    "negative": 9
+  },
+  {
+    "name": "Rania El Hadi",
+    "emotion": "Fière",
+    "description": "A quitté après avoir accompli ses objectifs.",
+    "positive": 99,
+    "negative": 5
+  }
+]
