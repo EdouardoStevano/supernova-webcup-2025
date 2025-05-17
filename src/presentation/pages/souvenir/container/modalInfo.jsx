@@ -49,12 +49,6 @@ function ModalInfo({
               >
                 Fermer
               </button>
-              <button
-                className="bg-pink-200 hover:bg-pink-300 text-pink-800 font-bold py-2 px-4 rounded-full shadow"
-                onClick={handleSave}
-              >
-                OK
-              </button>
             </PastillesForElement>
           </div>
         }
@@ -89,7 +83,7 @@ function ModalInfo({
                   alt="book-cover"
                 />
                 <span className="mt-3 text-base text-blue-400 font-bold flex items-center gap-1">
-                  <span>Devant</span> <span className="text-lg">⭐</span>
+                  <span>{"<>"}</span> <span className="text-lg">⭐</span>
                 </span>
                 <span className="mt-1 text-xs text-gray-400 italic">
                   Un moment inoubliable
@@ -106,7 +100,7 @@ function ModalInfo({
                   alt="book-back"
                 />
                 <span className="mt-3 text-base text-pink-400 font-bold flex items-center gap-1">
-                  <span>Derrière</span> <span className="text-lg">🌟</span>
+                  <span>{"<>"}</span> <span className="text-lg">🌟</span>
                 </span>
                 <span className="mt-1 text-xs text-gray-400 italic">
                   Toujours dans le cœur

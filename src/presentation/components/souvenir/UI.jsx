@@ -1,6 +1,6 @@
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
-
+import iconsEDs from "../../assets/supernova/icoLarge.png";
 const pictures = [
   "DSC00680",
   "DSC00933",
@@ -51,7 +51,12 @@ export const UI = () => {
     <>
       <main className=" pointer-events-none select-none z-10 fixed  inset-0  flex justify-between flex-col">
         <div>
-          <h1 className="text-2xl text-white p-2">The ENDPAGE</h1>
+          <h1 className="text-2xl flex items-center gap-2 text-white p-2">
+            <div className="flex justify-center w-[52px] ">
+              <img src={iconsEDs} alt="logo" className="" loading="lazy" />
+            </div>
+            <div>The ENDPAGE</div>
+          </h1>
         </div>
         <div className="w-full overflow-auto pointer-events-auto flex justify-center">
           <div className="overflow-auto flex items-center gap-4 max-w-full p-10">

@@ -4,14 +4,10 @@ import { AnimatePresence } from "framer-motion";
 import PageTransition from "../../presentation/components/landing/PageTransition";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-<<<<<<< HEAD
-import ConnectionStatus from '../../presentation/components/common/connectionStatus';
-import ProtectedRoute from '../../guards/protectedRoutes';
-import Assistance from '../../presentation/pages/assistance';
-=======
 import ConnectionStatus from "../../presentation/components/common/connectionStatus";
 import ProtectedRoute from "../../guards/protectedRoutes";
->>>>>>> ef5e1de35917b00a0de2b01d0440d2d9f589fc3c
+import Assistance from "../../presentation/pages/assistance";
+
 // Globale Routes
 const Layout = lazy(() => import("../../presentation/pages"));
 
@@ -23,6 +19,7 @@ const RedirectionRoutes = lazy(() => import("./redirect-route"));
 const AssistanceRoutes = lazy(() => import("./assistance-route"));
 const LandingRoutes = lazy(() => import("./landing-route"));
 const BuilderRoutes = lazy(() => import("./builder-route"));
+const BlogRoutes = lazy(() => import("./blog-route"));
 
 const SouvenirRoutes = lazy(() => import("./souvenir-route"));
 // ------------------------------------------------------------------------------------------------------
@@ -71,31 +68,12 @@ const RoutesConfig = () => {
               <Route path="dashboard/*" element={<DashboardRoutes />} />
             </Route>
 
-<<<<<<< HEAD
-                        {/* Assisatnce routes*/}
-                        <Route
-                            path="assitance/ai"
-                            element={<Assistance />}
-                        />
-                        {/* Builder Pages */}
-                        <Route path="builder/*" element={<BuilderRoutes />} />
-                        {/* Sous-routes pour les redirections */}
-                        <Route
-                            path="redirect/*"
-                            element={<RedirectionRoutes />}
-                        />
-                        {/* Routes des pages introuvable*/}
-                        <Route path="*" element={<NotFound />} />
-                    </Route>
-                </Routes>
-            </AnimatePresence>
-        </BrowserRouter>
-    );
-=======
             {/* Assisatnce routes*/}
             <Route path="assitance/ai" element={<AssistanceRoutes />} />
             {/* Builder Pages */}
             <Route path="builder/*" element={<BuilderRoutes />} />
+
+            <Route path="blog/*" element={<BlogRoutes />} />
 
             {/* Page de Souvenir */}
             <Route path="souvenir/*" element={<SouvenirRoutes />} />
@@ -109,7 +87,6 @@ const RoutesConfig = () => {
       </AnimatePresence>
     </BrowserRouter>
   );
->>>>>>> ef5e1de35917b00a0de2b01d0440d2d9f589fc3c
 };
 
 export default RoutesConfig;
