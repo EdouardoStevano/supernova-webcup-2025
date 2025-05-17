@@ -19,7 +19,7 @@ html,
 body {
     height: 100%;
     scroll-behavior: smooth;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
@@ -69,6 +69,13 @@ section {
 } */
 
 .pointBackground {
+    background-image: url('../presentation//assets/background/EDS_point_white.png');
+
+    &.dark {
+        background-image: url('../presentation//assets/background/EDS_point.png');
+    }
+}
+.pointBackgroundBlack {
     background-image: url('../presentation//assets/background/EDS_point_white.png');
 
     &.dark {
@@ -181,4 +188,22 @@ section {
     width: 20px;
     height: 20px;
     background-color: #00aefe;
+}
+
+.gradientBack1 {
+    background-image: url('../presentation/assets/background/TestGradient1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.authImage1 {
+    background-image: url('../presentation/assets/illustrations/auth1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.authImage2 {
+    background-image: url('../presentation/assets/illustrations/auth2.jpg');
+    background-size: cover;
+    background-position: center;
 }

@@ -34,6 +34,7 @@
         "react-router-dom": "^7.6.0",
         "react-tilt": "^1.0.2",
         "recharts": "^2.15.3",
+        "sass": "^1.89.0",
         "tailwind-merge": "^3.3.0",
         "tailwindcss": "^4.1.5"
     },

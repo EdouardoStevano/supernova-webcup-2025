@@ -59,11 +59,11 @@ const Landing = () => {
             data-scroll-container
             className="z-10 overflow-hidden"
         >
-            <div data-scroll-speed={0.1}>
+            {/* <div data-scroll-speed={0.1}>
                 <div
                     data-scroll
                     data-scroll-speed={0.3}
-                    className="flex h-screen bg-red-400 text-white"
+                    className="flex h-screen text-white"
                 >
                     Section 1
                     <div className="mt-2 p-25">
@@ -82,7 +82,8 @@ const Landing = () => {
                 >
                     Section 2
                 </div>
-            </div>
+            </div> */}
+            Test
         </div>
     );
 };

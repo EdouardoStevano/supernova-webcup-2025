@@ -12,11 +12,12 @@ function cursor() {
                 outerAlpha={1}
                 innerScale={1}
                 hasBlendMode={true}
+                showSystemCursor={false}
                 outerStyle={{
-                    border: '3px solid red',
+                    border: '2px solid #666',
                 }}
                 innerStyle={{
-                    backgroundColor: '#fff',
+                    backgroundColor: '#333',
                 }}
                 outerScale={2}
                 clickables={[

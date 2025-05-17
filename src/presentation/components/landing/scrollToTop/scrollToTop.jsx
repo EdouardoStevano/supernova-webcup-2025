@@ -29,7 +29,7 @@ function ScrollToTop() {
 
     return (
         <div
-            className={`scroll-to-bottom-button z-50 ${isVisible ? 'visible' : ''}`}
+            className={`scroll-to-bottom-button z-100 bg-white ${isVisible ? 'visible' : ''}`}
             onClick={scrollToTop}
         >
             <span>Revenir</span>
