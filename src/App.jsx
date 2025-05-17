@@ -2,6 +2,7 @@ import { useState } from 'react';
 import viteLogo from '/vite.svg';
 import { useToast } from './presentation/components/common/superToast';
 import Button from './presentation/components/common/button';
+import { FarewellProvider } from './context/FarewellContext';
 
 function App() {
     const [count, setCount] = useState(0);
