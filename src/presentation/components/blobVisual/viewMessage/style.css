@@ -1,0 +1,13 @@
+.view-message{
+    position: fixed;
+    padding: 10px;
+    right: 15px;
+    top : 50%;
+    transform: translateY(-50%);
+    background: #0f0f0f36;
+    backdrop-filter: blur(8px);
+    border-radius: 5px;
+    width: 25%;
+    height: 80vh;
+    overflow: auto;
+}
