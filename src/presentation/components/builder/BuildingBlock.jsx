@@ -1,21 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { X, GripVertical } from 'lucide-react';
-import { useFarewell } from '../../../context/FarewellContext';
-import { useDraggable } from '@dnd-kit/core';
+import React from "react";
+import { motion } from "framer-motion";
+import { X, GripVertical } from "lucide-react";
+import { useFarewell } from "../../../context/FarewellContext";
+import { useDraggable } from "@dnd-kit/core";
 
 const BuildingBlock = ({ element }) => {
   const { removeElement, updateElement } = useFarewell();
   const [isEditing, setIsEditing] = React.useState(false);
-  const [editContent, setEditContent] = React.useState(element.content || '');
-  
+  const [editContent, setEditContent] = React.useState(element.content || "");
+
   // Use dnd-kit's useDraggable hook
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: element.id,
   });
 
   const handleContentClick = () => {
-    if (element.type === 'text') {
+    if (element.type === "text") {
       setIsEditing(true);
     }
   };
@@ -26,7 +26,7 @@ const BuildingBlock = ({ element }) => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleBlur();
     }
@@ -34,7 +34,7 @@ const BuildingBlock = ({ element }) => {
 
   const renderContent = () => {
     switch (element.type) {
-      case 'text':
+      case "text":
         return isEditing ? (
           <textarea
             value={editContent}
@@ -42,52 +42,79 @@ const BuildingBlock = ({ element }) => {
             onBlur={handleBlur}
             onKeyDown={handleKeyDown}
             autoFocus
-            className={`w-full bg-transparent text-white border-none outline-none resize-none ${element.style?.font || ''}`}
+            className={`w-full bg-transparent text-white border-none outline-none resize-none ${element.style?.font || ""}`}
             style={{ color: element.style?.color }}
             rows={2}
           />
         ) : (
           <p
             onClick={handleContentClick}
-            className={`cursor-text whitespace-pre-wrap ${element.style?.font || ''}`}
+            className={`cursor-text whitespace-pre-wrap ${element.style?.font || ""}`}
             style={{ color: element.style?.color }}
           >
             {element.content}
           </p>
         );
-      case 'image':
+      case "image":
         return (
           <img
             src={element.content}
             alt="User uploaded image"
             className="max-w-full h-auto rounded-lg"
-            style={{ 
+            style={{
               filter: element.style?.filter,
-              maxHeight: '200px' 
+              maxHeight: "200px",
             }}
           />
         );
-      case 'gif':
+      case "gif":
         return (
           <img
             src={element.content}
             alt="GIF"
             className="max-w-full h-auto rounded-lg"
-            style={{ 
+            style={{
               filter: element.style?.filter,
-              maxHeight: '150px', // Reduced max height for GIFs
-              maxWidth: '200px'    // Added max width for GIFs
+              maxHeight: "150px",
+              maxWidth: "200px",
             }}
           />
         );
-      case 'sticker':
+      case "sticker":
         return (
           <div className="text-6xl" style={{ filter: element.style?.filter }}>
             {element.content}
           </div>
         );
-      case 'emoji':
+      case "emoji":
         return <div className="text-4xl">{element.content}</div>;
+      case "effect":
+        let effectClass = "";
+        switch (element.effect) {
+          case "tears":
+            effectClass = "effect-block animate-tears";
+            break;
+          case "sparkles":
+            effectClass = "effect-block animate-sparkles";
+            break;
+          case "cringe":
+            effectClass = "effect-block animate-cringe";
+            break;
+          case "cry":
+            effectClass = "effect-block animate-cry";
+            break;
+          default:
+            effectClass = "effect-block";
+        }
+        return (
+          <div
+            className={effectClass}
+            style={{
+              width: element.size?.width || 120,
+              height: element.size?.height || 120,
+            }}
+          />
+        );
       default:
         return null;
     }
@@ -95,14 +122,17 @@ const BuildingBlock = ({ element }) => {
 
   // Adjust container width based on element type
   const getContainerClasses = () => {
-    let baseClasses = "min-w-[100px] min-h-[40px] bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/20";
-    
-    if (element.type === 'image' || element.type === 'gif') {
+    let baseClasses = "min-w-[100px] min-h-[40px] p-4 ";
+
+    if (element.type === "image" || element.type === "gif") {
       return `${baseClasses} flex items-center justify-center`;
     }
-    
+
     return baseClasses;
   };
+
+  // ❌ REMOVE this early return for effects!
+  // if (element.type === "effect") { ... }
 
   return (
     <motion.div
@@ -114,7 +144,9 @@ const BuildingBlock = ({ element }) => {
       style={{
         left: element.position.x,
         top: element.position.y,
-        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+        transform: transform
+          ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+          : undefined,
       }}
       {...attributes}
     >
@@ -128,7 +160,7 @@ const BuildingBlock = ({ element }) => {
         </div>
 
         {/* Drag indicator */}
-        <div 
+        <div
           className="opacity-0 group-hover:opacity-100 absolute -top-3 -left-3 bg-gray-800 text-white p-1 rounded-full"
           {...listeners}
         >
@@ -136,9 +168,7 @@ const BuildingBlock = ({ element }) => {
         </div>
 
         {/* Content */}
-        <div className={getContainerClasses()}>
-          {renderContent()}
-        </div>
+        <div className={getContainerClasses()}>{renderContent()}</div>
       </div>
     </motion.div>
   );
