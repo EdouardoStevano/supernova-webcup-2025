@@ -1,12 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import EditorCanvas from "../../../components/builder/EditorCanvas";
 import { useFarewell } from "../../../../context/FarewellContext";
 import { motion } from "framer-motion";
-import { Share2, Palette, Image as ImageIcon } from "lucide-react";
+import { Share2, Palette, Image as ImageIcon, Eye } from "lucide-react";
 
 const MainBuilder = () => {
   const { farewellPage, setBackground } = useFarewell();
   const fileInputRef = useRef(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   const backgrounds = [
     {
@@ -52,6 +53,25 @@ const MainBuilder = () => {
 
   return (
     <div className="flex-1 p-4 flex flex-col overflow-hidden">
+      {/* Preview Modal */}
+      {showPreview && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center">
+          <div className="bg-white rounded-xl shadow-2xl p-4 w-[90vw] h-[90vh] max-w-6xl max-h-[90vh] relative flex flex-col">
+            <button
+              className="absolute top-4 right-6 text-gray-600 hover:text-black text-3xl z-10"
+              onClick={() => setShowPreview(false)}
+              aria-label="Close preview"
+            >
+              ×
+            </button>
+            <div className="flex-1 overflow-auto bg-gray-100 rounded-lg p-4">
+              {/* Pass previewMode to disable editing */}
+              <EditorCanvas previewMode />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="mb-4 glass-panel p-4 border-purple-500/30">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
@@ -118,6 +138,17 @@ const MainBuilder = () => {
                 </div>
               </div>
             </div>
+
+            {/* Preview Button */}
+            <motion.button
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 rounded-full font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowPreview(true)}
+            >
+              <Eye className="w-4 h-4" />
+              Preview
+            </motion.button>
 
             {/* Share Button */}
             <motion.button

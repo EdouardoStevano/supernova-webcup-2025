@@ -202,7 +202,7 @@ const BuildingBlock = ({ element, selected, onSelect }) => {
   return (
     <motion.div
       ref={setNodeRef}
-      className={`absolute group cursor-grab z-10 ${selected ? 'ring-2 ring-blue-400' : ''}`}
+      className={`absolute group cursor-grab z-10 ${selected ? "ring-2 ring-blue-400" : ""}`}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.02 }}
@@ -249,7 +249,7 @@ const BuildingBlock = ({ element, selected, onSelect }) => {
 
         {/* Resize handle */}
         <div
-          className="group-hover:opacity-100 absolute bottom-1 right-1 w-5 h-5 flex items-center justify-center bg-white border border-gray-400 rounded cursor-se-resize z-20 transition-opacity duration-200 opacity-80 hover:opacity-100"
+          className="opacity-0 group-hover:opacity-100 absolute bottom-1 right-1 w-5 h-5 flex items-center justify-center bg-white border border-gray-400 rounded cursor-se-resize z-20 transition-opacity duration-200"
           onMouseDown={startResize}
           style={{ touchAction: "none" }}
         >
