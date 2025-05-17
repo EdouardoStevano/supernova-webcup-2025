@@ -1,37 +1,57 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { X, GripVertical } from "lucide-react";
+import { X, GripVertical, MoveDiagonal } from "lucide-react";
 import { useFarewell } from "../../../context/FarewellContext";
 import { useDraggable } from "@dnd-kit/core";
 
-const BuildingBlock = ({ element }) => {
+const MIN_WIDTH = 40;
+const MIN_HEIGHT = 40;
+
+const BuildingBlock = ({ element, selected, onSelect }) => {
   const { removeElement, updateElement } = useFarewell();
   const [isEditing, setIsEditing] = React.useState(false);
   const [editContent, setEditContent] = React.useState(element.content || "");
+  const [resizing, setResizing] = React.useState(false);
 
   // Use dnd-kit's useDraggable hook
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: element.id,
   });
 
-  const handleContentClick = () => {
-    if (element.type === "text") {
-      setIsEditing(true);
-    }
+  // --- Resize logic ---
+  const startResize = (e) => {
+    e.stopPropagation();
+    setResizing(true);
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startWidth = element.size?.width || 120;
+    const startHeight = element.size?.height || 120;
+
+    const onMouseMove = (moveEvent) => {
+      const newWidth = Math.max(
+        MIN_WIDTH,
+        startWidth + (moveEvent.clientX - startX)
+      );
+      const newHeight = Math.max(
+        MIN_HEIGHT,
+        startHeight + (moveEvent.clientY - startY)
+      );
+      updateElement(element.id, {
+        size: { width: newWidth, height: newHeight },
+      });
+    };
+
+    const onMouseUp = () => {
+      setResizing(false);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
   };
 
-  const handleBlur = () => {
-    updateElement(element.id, { content: editContent });
-    setIsEditing(false);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleBlur();
-    }
-  };
-
+  // --- Content rendering ---
   const renderContent = () => {
     switch (element.type) {
       case "text":
@@ -39,55 +59,99 @@ const BuildingBlock = ({ element }) => {
           <textarea
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
-            onBlur={handleBlur}
-            onKeyDown={handleKeyDown}
+            onBlur={() => {
+              updateElement(element.id, { content: editContent });
+              setIsEditing(false);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                updateElement(element.id, { content: editContent });
+                setIsEditing(false);
+              }
+            }}
             autoFocus
-            className={`w-full bg-transparent text-white border-none outline-none resize-none ${element.style?.font || ""}`}
-            style={{ color: element.style?.color }}
+            className="w-full bg-transparent text-white border-none outline-none resize-none"
+            style={{
+              fontSize: element.size?.height
+                ? `${Math.max(16, element.size.height / 2.5)}px`
+                : "32px",
+              color: element.style?.color || "#ffffff",
+              fontFamily: element.style?.font,
+              fontWeight: element.style?.fontWeight || "normal",
+              fontStyle: element.style?.fontStyle || "normal",
+              textDecoration: element.style?.textDecoration || "none",
+              minHeight: 32,
+              minWidth: 80,
+              height: "100%",
+              width: "100%",
+            }}
             rows={2}
           />
         ) : (
           <p
-            onClick={handleContentClick}
-            className={`cursor-text whitespace-pre-wrap ${element.style?.font || ""}`}
-            style={{ color: element.style?.color }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent event bubbling
+              if (onSelect) onSelect();
+            }}
+            onDoubleClick={() => setIsEditing(true)}
+            className="cursor-text whitespace-pre-wrap"
+            style={{
+              fontSize: element.size?.height
+                ? `${Math.max(16, element.size.height / 2.5)}px`
+                : "32px",
+              color: element.style?.color || "#ffffff",
+              fontFamily: element.style?.font,
+              fontWeight: element.style?.fontWeight || "normal",
+              fontStyle: element.style?.fontStyle || "normal",
+              textDecoration: element.style?.textDecoration || "none",
+              minHeight: 32,
+              minWidth: 80,
+              height: "100%",
+              width: "100%",
+            }}
           >
             {element.content}
           </p>
         );
       case "image":
-        return (
-          <img
-            src={element.content}
-            alt="User uploaded image"
-            className="max-w-full h-auto rounded-lg"
-            style={{
-              filter: element.style?.filter,
-              maxHeight: "200px",
-            }}
-          />
-        );
       case "gif":
         return (
           <img
             src={element.content}
-            alt="GIF"
-            className="max-w-full h-auto rounded-lg"
+            alt={element.type}
+            className="rounded-lg object-contain"
             style={{
+              width: "100%",
+              height: "100%",
               filter: element.style?.filter,
-              maxHeight: "150px",
-              maxWidth: "200px",
+              pointerEvents: "none",
             }}
+            draggable={false}
           />
         );
       case "sticker":
         return (
-          <div className="text-6xl" style={{ filter: element.style?.filter }}>
+          <div
+            className="text-6xl flex items-center justify-center"
+            style={{
+              filter: element.style?.filter,
+              width: "100%",
+              height: "100%",
+            }}
+          >
             {element.content}
           </div>
         );
       case "emoji":
-        return <div className="text-4xl">{element.content}</div>;
+        return (
+          <div
+            className="text-4xl flex items-center justify-center"
+            style={{ width: "100%", height: "100%" }}
+          >
+            {element.content}
+          </div>
+        );
       case "effect":
         let effectClass = "";
         switch (element.effect) {
@@ -110,8 +174,8 @@ const BuildingBlock = ({ element }) => {
           <div
             className={effectClass}
             style={{
-              width: element.size?.width || 120,
-              height: element.size?.height || 120,
+              width: "100%",
+              height: "100%",
             }}
           />
         );
@@ -120,41 +184,54 @@ const BuildingBlock = ({ element }) => {
     }
   };
 
-  // Adjust container width based on element type
+  // --- Container classes ---
   const getContainerClasses = () => {
-    let baseClasses = "min-w-[100px] min-h-[40px] p-4 ";
-
-    if (element.type === "image" || element.type === "gif") {
-      return `${baseClasses} flex items-center justify-center`;
+    if (
+      element.type === "image" ||
+      element.type === "gif" ||
+      element.type === "effect" ||
+      element.type === "sticker" ||
+      element.type === "emoji"
+    ) {
+      return "w-full h-full flex items-center justify-center";
     }
-
-    return baseClasses;
+    return "w-full h-full";
   };
 
-  // ❌ REMOVE this early return for effects!
-  // if (element.type === "effect") { ... }
-
+  // --- Main render ---
   return (
     <motion.div
       ref={setNodeRef}
-      className="absolute group cursor-grab z-10"
+      className={`absolute group cursor-grab z-10 ${selected ? 'ring-2 ring-blue-400' : ''}`}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.02 }}
       style={{
         left: element.position.x,
         top: element.position.y,
+        width: element.size?.width || 120,
+        height: element.size?.height || 120,
+        minWidth: MIN_WIDTH,
+        minHeight: MIN_HEIGHT,
         transform: transform
           ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
           : undefined,
+        userSelect: resizing ? "none" : undefined,
       }}
       {...attributes}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (onSelect) onSelect();
+      }}
     >
-      <div className="relative">
+      <div className="relative w-full h-full">
         {/* Remove button */}
         <div
           className="opacity-0 group-hover:opacity-100 absolute -top-3 -right-3 bg-red-500 text-white p-1 rounded-full cursor-pointer transition-opacity duration-200"
-          onClick={() => removeElement(element.id)}
+          onClick={(e) => {
+            e.stopPropagation();
+            removeElement(element.id);
+          }}
         >
           <X size={14} />
         </div>
@@ -169,6 +246,15 @@ const BuildingBlock = ({ element }) => {
 
         {/* Content */}
         <div className={getContainerClasses()}>{renderContent()}</div>
+
+        {/* Resize handle */}
+        <div
+          className="group-hover:opacity-100 absolute bottom-1 right-1 w-5 h-5 flex items-center justify-center bg-white border border-gray-400 rounded cursor-se-resize z-20 transition-opacity duration-200 opacity-80 hover:opacity-100"
+          onMouseDown={startResize}
+          style={{ touchAction: "none" }}
+        >
+          <MoveDiagonal size={16} className="text-gray-500" />
+        </div>
       </div>
     </motion.div>
   );

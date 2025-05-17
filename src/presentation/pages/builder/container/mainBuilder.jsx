@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import EditorCanvas from "../../../components/builder/EditorCanvas";
 import { useFarewell } from "../../../../context/FarewellContext";
 import { motion } from "framer-motion";
-import { Share2, Palette } from "lucide-react";
+import { Share2, Palette, Image as ImageIcon } from "lucide-react";
 
 const MainBuilder = () => {
   const { farewellPage, setBackground } = useFarewell();
+  const fileInputRef = useRef(null);
 
   const backgrounds = [
     {
@@ -33,7 +34,21 @@ const MainBuilder = () => {
       value: "absurd-bg",
       preview: "bg-gradient-to-r from-[#fc466b] via-[#3f5efb] to-[#00c9ff]",
     },
+    {
+      name: "Custom Image",
+      value: "custom-image",
+      preview: "bg-gray-300 flex items-center justify-center",
+    },
   ];
+
+  // Handle file input change
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setBackground({ type: "custom-image", url });
+    }
+  };
 
   return (
     <div className="flex-1 p-4 flex flex-col overflow-hidden">
@@ -66,16 +81,40 @@ const MainBuilder = () => {
                         onClick={() => setBackground(bg.value)}
                         whileHover={{ scale: 1.03 }}
                         className={`flex items-center gap-3 p-2 rounded-lg transition-colors ${
-                          farewellPage.background === bg.value
+                          (typeof farewellPage.background === "string"
+                            ? farewellPage.background === bg.value
+                            : farewellPage.background?.type === bg.value)
                             ? "border border-gradient-to-r from-purple-400 to-blue-400 bg-white/10"
                             : "hover:bg-white/10"
                         }`}
                       >
-                        <div className={`w-5 h-5 rounded-full ${bg.preview}`} />
+                        <div className={`w-5 h-5 rounded-full ${bg.preview}`}>
+                          {bg.value === "custom-image" && (
+                            <ImageIcon className="w-4 h-4 mx-auto my-auto text-gray-500" />
+                          )}
+                        </div>
                         <span>{bg.name}</span>
                       </motion.button>
                     ))}
                   </div>
+                  {/* Show file input if custom image is selected */}
+                  {(farewellPage.background === "custom-image" ||
+                    farewellPage.background?.type === "custom-image") && (
+                    <div className="mt-2">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                        className="block w-full text-sm text-gray-500
+                          file:mr-4 file:py-2 file:px-4
+                          file:rounded-full file:border-0
+                          file:text-sm file:font-semibold
+                          file:bg-blue-50 file:text-blue-700
+                          hover:file:bg-blue-100"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
