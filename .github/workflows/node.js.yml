@@ -33,3 +33,5 @@ jobs:
           local-dir: ./dist/
           server-dir: public_html/
           protocol: ftps
+          dangerous-clean-slate: true
+          verbose: true
