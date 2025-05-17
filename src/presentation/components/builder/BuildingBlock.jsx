@@ -4,6 +4,7 @@ import { X, GripVertical, MoveDiagonal } from "lucide-react";
 import { useFarewell } from "../../../context/FarewellContext";
 import { useDraggable } from "@dnd-kit/core";
 
+
 const MIN_WIDTH = 40;
 const MIN_HEIGHT = 40;
 

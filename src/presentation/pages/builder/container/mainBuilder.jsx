@@ -4,11 +4,13 @@ import { useFarewell } from "../../../../context/FarewellContext";
 import { motion } from "framer-motion";
 import { Share2, Palette, Image as ImageIcon, Eye } from "lucide-react";
 
+
 const MainBuilder = () => {
   const { farewellPage, setBackground } = useFarewell();
   const fileInputRef = useRef(null);
   const [showPreview, setShowPreview] = useState(false);
 
+  
   const backgrounds = [
     {
       name: "Dramatic",
@@ -101,9 +103,11 @@ const MainBuilder = () => {
                         onClick={() => setBackground(bg.value)}
                         whileHover={{ scale: 1.03 }}
                         className={`flex items-center gap-3 p-2 rounded-lg transition-colors ${
-                          (typeof farewellPage.background === "string"
-                            ? farewellPage.background === bg.value
-                            : farewellPage.background?.type === bg.value)
+                          (
+                            typeof farewellPage.background === "string"
+                              ? farewellPage.background === bg.value
+                              : farewellPage.background?.type === bg.value
+                          )
                             ? "border border-gradient-to-r from-purple-400 to-blue-400 bg-white/10"
                             : "hover:bg-white/10"
                         }`}

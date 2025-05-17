@@ -80,6 +80,7 @@ const EditorCanvas = () => {
       }}
     >
       <div
+        id="farewell-canvas" 
         className={`h-[80vh] w-full relative overflow-hidden rounded-2xl shadow-xl border-4 border-white/20 ${
           typeof farewellPage.background === "string"
             ? farewellPage.background
