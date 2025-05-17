@@ -10,13 +10,14 @@ import "driver.js/dist/driver.css";
 // import extension from "@theatre/r3f/dist/extension";
 // Provider
 import { ToastProvider } from "./presentation/components/common/superToast";
-// studio.extend(extension);
-// studio.initialize();
+import { FarewellProvider } from "./context/FarewellContext.jsx";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
-    <ToastProvider>
-      <RoutesConfig />
-    </ToastProvider>
+    <FarewellProvider>
+      <ToastProvider>
+        <RoutesConfig />
+      </ToastProvider>
+    </FarewellProvider>
   </StrictMode>
 );
