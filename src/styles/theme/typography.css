@@ -1,3 +1,25 @@
 @theme {
     --font-base: 'Bricolage Grotesque', sans-serif;
 }
+
+.typographie-dramatic {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.typographie-retro {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.typographie-pixel {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+}
+
+.typographie-comic {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.5rem;
+}
