@@ -2,23 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, GripVertical } from 'lucide-react';
 import { useFarewell } from '../../../context/FarewellContext';
+import { useDraggable } from '@dnd-kit/core';
 
 const BuildingBlock = ({ element }) => {
-  const { removeElement, moveElement, updateElement } = useFarewell();
+  const { removeElement, updateElement } = useFarewell();
   const [isEditing, setIsEditing] = React.useState(false);
   const [editContent, setEditContent] = React.useState(element.content || '');
-
-  const handleDragEnd = (event, info) => {
-    const deltaX = info.offset.x;
-    const deltaY = info.offset.y;
-
-    const newPosition = {
-      x: element.position.x + deltaX,
-      y: element.position.y + deltaY,
-    };
-
-    moveElement(element.id, newPosition);
-  };
+  
+  // Use dnd-kit's useDraggable hook
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: element.id,
+  });
 
   const handleContentClick = () => {
     if (element.type === 'text') {
@@ -79,7 +73,11 @@ const BuildingBlock = ({ element }) => {
             src={element.content}
             alt="GIF"
             className="max-w-full h-auto rounded-lg"
-            style={{ filter: element.style?.filter }}
+            style={{ 
+              filter: element.style?.filter,
+              maxHeight: '150px', // Reduced max height for GIFs
+              maxWidth: '200px'    // Added max width for GIFs
+            }}
           />
         );
       case 'sticker':
@@ -99,7 +97,7 @@ const BuildingBlock = ({ element }) => {
   const getContainerClasses = () => {
     let baseClasses = "min-w-[100px] min-h-[40px] bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/20";
     
-    if (element.type === 'image') {
+    if (element.type === 'image' || element.type === 'gif') {
       return `${baseClasses} flex items-center justify-center`;
     }
     
@@ -108,17 +106,17 @@ const BuildingBlock = ({ element }) => {
 
   return (
     <motion.div
+      ref={setNodeRef}
       className="absolute group cursor-grab z-10"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.02 }}
-      drag
-      dragMomentum={false}
-      onDragEnd={handleDragEnd}
       style={{
         left: element.position.x,
         top: element.position.y,
+        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
       }}
+      {...attributes}
     >
       <div className="relative">
         {/* Remove button */}
@@ -130,7 +128,10 @@ const BuildingBlock = ({ element }) => {
         </div>
 
         {/* Drag indicator */}
-        <div className="opacity-0 group-hover:opacity-100 absolute -top-3 -left-3 bg-gray-800 text-white p-1 rounded-full">
+        <div 
+          className="opacity-0 group-hover:opacity-100 absolute -top-3 -left-3 bg-gray-800 text-white p-1 rounded-full"
+          {...listeners}
+        >
           <GripVertical size={14} />
         </div>
 

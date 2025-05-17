@@ -12,8 +12,23 @@ import { useFarewell } from '../../../context/FarewellContext';
 
 const EditorCanvas = () => {
   const { farewellPage, moveElement } = useFarewell();
-  const mouseSensor = useSensor(MouseSensor);
-  const touchSensor = useSensor(TouchSensor);
+  
+  // Configure sensors with higher activation constraints for more precise control
+  const mouseSensor = useSensor(MouseSensor, {
+    // Requiring more movement before a drag starts
+    activationConstraint: {
+      distance: 5, // 5px of movement required before drag starts
+    },
+  });
+  
+  const touchSensor = useSensor(TouchSensor, {
+    // Requiring a longer press for touch devices
+    activationConstraint: {
+      delay: 250, // 250ms delay before touch drag activates
+      tolerance: 5, // 5px of tolerance
+    },
+  });
+  
   const sensors = useSensors(mouseSensor, touchSensor);
 
   const handleDragEnd = (event) => {
@@ -23,17 +38,28 @@ const EditorCanvas = () => {
     const element = farewellPage.elements.find((el) => el.id === id);
     
     if (element && element.position) {
+      // Calculate the new position based on the original position plus the movement delta
       const newPosition = {
         x: element.position.x + delta.x,
         y: element.position.y + delta.y,
       };
       
+      // Update the element position through the context
       moveElement(id, newPosition);
     }
   };
 
   return (
-    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+    <DndContext 
+      sensors={sensors} 
+      onDragEnd={handleDragEnd}
+      // Improved measurement strategy for more precise dragging
+      measuring={{
+        droppable: {
+          strategy: 'always',
+        },
+      }}
+    >
       <div className={`h-[600px] w-full relative overflow-hidden rounded-2xl shadow-xl border-4 border-white/20 ${farewellPage.background}`}>
         <div className="noisy-bg w-full h-full">
           {farewellPage.elements.map((element) => (
