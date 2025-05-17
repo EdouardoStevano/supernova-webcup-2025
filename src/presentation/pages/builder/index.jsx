@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 const BuilderPage = () => {
     return (
         <div className="pointBackground h-screen max-h-[100vh] overflow-hidden bg-gray-200">
-            <div className="content flex h-full w-full items-center justify-center overflow-hidden overflow-y-auto">
+            <div className="content flex h-full w-full overflow-hidden">
                 <Sidebar />
 
                 <div className="w-full">

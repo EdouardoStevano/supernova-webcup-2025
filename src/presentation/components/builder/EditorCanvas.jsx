@@ -60,7 +60,7 @@ const EditorCanvas = () => {
         },
       }}
     >
-      <div className={`h-[600px] w-full relative overflow-hidden rounded-2xl shadow-xl border-4 border-white/20 ${farewellPage.background}`}>
+      <div className={`h-[750px] w-full relative overflow-hidden rounded-2xl shadow-xl border-4 border-white/20 ${farewellPage.background}`}>
         <div className="noisy-bg w-full h-full">
           {farewellPage.elements.map((element) => (
             <BuildingBlock

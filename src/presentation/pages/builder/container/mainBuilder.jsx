@@ -34,7 +34,7 @@ const MainBuilder = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Palette className="w-4 h-4" />
-                <span>Background</span>
+                <span>Themes</span>
               </motion.button>
               
               <div className="absolute right-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
