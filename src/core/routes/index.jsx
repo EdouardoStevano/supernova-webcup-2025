@@ -6,6 +6,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import ConnectionStatus from "../../presentation/components/common/connectionStatus";
 import ProtectedRoute from "../../guards/protectedRoutes";
+import ProjectGraveYard from "../../presentation/components/project_graveyard";
 // Globale Routes
 const Layout = lazy(() => import("../../presentation/pages"));
 
@@ -67,6 +68,8 @@ const RoutesConfig = () => {
 
             {/* Assisatnce routes*/}
             <Route path="assitance/ai" element={<AssistanceRoutes />} />
+            <Route path="assitance/project-graveyard" element={<ProjectGraveYard />} />
+
             {/* Builder Pages */}
             <Route path="builder/*" element={<BuilderRoutes />} />
 
