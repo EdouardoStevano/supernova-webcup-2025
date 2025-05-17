@@ -1,93 +1,87 @@
-import React, { lazy } from 'react';
-import { getInitialDarkModePreference } from '../utils/theme';
-import { AnimatePresence } from 'framer-motion';
-import PageTransition from '../../presentation/components/landing/PageTransition';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import React, { lazy } from "react";
+import { getInitialDarkModePreference } from "../utils/theme";
+import { AnimatePresence } from "framer-motion";
+import PageTransition from "../../presentation/components/landing/PageTransition";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import ConnectionStatus from '../../presentation/components/common/connectionStatus';
-import ProtectedRoute from '../../guards/protectedRoutes';
+import ConnectionStatus from "../../presentation/components/common/connectionStatus";
+import ProtectedRoute from "../../guards/protectedRoutes";
 // Globale Routes
-const Layout = lazy(() => import('../../presentation/pages'));
+const Layout = lazy(() => import("../../presentation/pages"));
 
 // ------------------------------------------------------------------------------------------------------
 // Pages Route
-const AuthRoutes = lazy(() => import('./auth-Route'));
-const DashboardRoutes = lazy(() => import('./dashboard-route'));
-const RedirectionRoutes = lazy(() => import('./redirect-route'));
-const AssistanceRoutes = lazy(() => import('./assistance-route'));
-const LandingRoutes = lazy(() => import('./landing-route'));
-const BuilderRoutes = lazy(() => import('./builder-route'));
+const AuthRoutes = lazy(() => import("./auth-Route"));
+const DashboardRoutes = lazy(() => import("./dashboard-route"));
+const RedirectionRoutes = lazy(() => import("./redirect-route"));
+const AssistanceRoutes = lazy(() => import("./assistance-route"));
+const LandingRoutes = lazy(() => import("./landing-route"));
+const BuilderRoutes = lazy(() => import("./builder-route"));
+
+const SouvenirRoutes = lazy(() => import("./souvenir-route"));
 // ------------------------------------------------------------------------------------------------------
 
 // Redirection pages
 const NotFound = lazy(
-    () => import('../../presentation/pages/redirect/notFound')
+  () => import("../../presentation/pages/redirect/notFound")
 );
 
 const RoutesConfig = () => {
-    getInitialDarkModePreference();
+  getInitialDarkModePreference();
 
-    return (
-        <BrowserRouter>
-            <AnimatePresence mode="wait">
-                {/* Constant components */}
-                <ConnectionStatus />
+  return (
+    <BrowserRouter>
+      <AnimatePresence mode="wait">
+        {/* Constant components */}
+        <ConnectionStatus />
 
-                <Routes>
-                    {/* Redirect '/' in '/landing' */}
-                    <Route
-                        path="/"
-                        element={<Navigate to="/landing" replace />}
-                    />
+        <Routes>
+          {/* Redirect '/' in '/landing' */}
+          <Route path="/" element={<Navigate to="/landing" replace />} />
 
-                    <Route path="/" element={<Layout />}>
-                        {/* Landing routes*/}
-                        <Route
-                            path="landing/*"
-                            element={
-                                // <PageTransition>
-                                <LandingRoutes />
-                                // </PageTransition>
-                            }
-                        />
-                        {/* Authentification routes*/}
-                        <Route
-                            path="auth/*"
-                            element={
-                                localStorage.getItem('token') ? (
-                                    <Navigate to="/dashboard" replace />
-                                ) : (
-                                    <AuthRoutes />
-                                )
-                            }
-                        />
-                        {/* Dashboard routes*/}
-                        <Route element={<ProtectedRoute />}>
-                            <Route
-                                path="dashboard/*"
-                                element={<DashboardRoutes />}
-                            />
-                        </Route>
+          <Route path="/" element={<Layout />}>
+            {/* Landing routes*/}
+            <Route
+              path="landing/*"
+              element={
+                // <PageTransition>
+                <LandingRoutes />
+                // </PageTransition>
+              }
+            />
+            {/* Authentification routes*/}
+            <Route
+              path="auth/*"
+              element={
+                localStorage.getItem("token") ? (
+                  <Navigate to="/dashboard" replace />
+                ) : (
+                  <AuthRoutes />
+                )
+              }
+            />
+            {/* Dashboard routes*/}
+            <Route element={<ProtectedRoute />}>
+              <Route path="dashboard/*" element={<DashboardRoutes />} />
+            </Route>
 
-                        {/* Assisatnce routes*/}
-                        <Route
-                            path="assitance/ai"
-                            element={<AssistanceRoutes />}
-                        />
-                        {/* Builder Pages */}
-                        <Route path="builder/*" element={<BuilderRoutes />} />
-                        {/* Sous-routes pour les redirections */}
-                        <Route
-                            path="redirect/*"
-                            element={<RedirectionRoutes />}
-                        />
-                        {/* Routes des pages introuvable*/}
-                        <Route path="*" element={<NotFound />} />
-                    </Route>
-                </Routes>
-            </AnimatePresence>
-        </BrowserRouter>
-    );
+            {/* Assisatnce routes*/}
+            <Route path="assitance/ai" element={<AssistanceRoutes />} />
+            {/* Builder Pages */}
+            <Route path="builder/*" element={<BuilderRoutes />} />
+
+            {/* Page de Souvenir */}
+            <Route path="souvenir/*" element={<SouvenirRoutes />} />
+
+            {/* Sous-routes pour les redirections */}
+            <Route path="redirect/*" element={<RedirectionRoutes />} />
+            {/* Routes des pages introuvable*/}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
+    </BrowserRouter>
+  );
 };
 
 export default RoutesConfig;
