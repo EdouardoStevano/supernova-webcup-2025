@@ -176,10 +176,10 @@ const SidebarBuilder = () => {
 
     return (
         <div
-            className="m-4 h-[calc(100vh-2rem)] w-[320px] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-slate-800/80 to-slate-900/90 backdrop-blur-xl"
+            className="m-4 h-[calc(100vh-2rem)] w-[320px] overflow-hidden rounded-2xl border-3 border-gray-300 bg-white/80 backdrop-blur-xl"
             style={{ boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)' }}
         >
-            <div className="border-b border-white/10 p-4">
+            <div className="border-b-1 border-gray-200 p-4">
                 <h2 className="flex items-center gap-2 text-xl font-bold text-white">
                     <GripHorizontal className="h-5 w-5 text-teal-400" />
                     <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
@@ -200,10 +200,10 @@ const SidebarBuilder = () => {
                             className="mb-4"
                         >
                             <motion.button
-                                className={`flex w-full items-center justify-between rounded-lg p-3 text-white ${
+                                className={`flex w-full items-center justify-between rounded-xl bg-gray-200 p-3 text-white ${
                                     activeCategory === category.id
-                                        ? 'border border-white/10 bg-gradient-to-r from-teal-500/20 to-blue-500/20'
-                                        : 'hover:bg-white/5'
+                                        ? 'bg-gray-200'
+                                        : 'hover:bg-gray-300'
                                 } transition-all duration-200`}
                                 onClick={() =>
                                     setActiveCategory(
@@ -219,8 +219,8 @@ const SidebarBuilder = () => {
                                     <div
                                         className={`${
                                             activeCategory === category.id
-                                                ? 'text-teal-400'
-                                                : 'text-slate-400'
+                                                ? 'text-primary-600'
+                                                : 'text-slate-500'
                                         }`}
                                     >
                                         {category.icon}
@@ -228,8 +228,8 @@ const SidebarBuilder = () => {
                                     <span
                                         className={`${
                                             activeCategory === category.id
-                                                ? 'text-white'
-                                                : 'text-slate-300'
+                                                ? 'text-primary-600'
+                                                : 'text-slate-500'
                                         }`}
                                     >
                                         {category.name}
@@ -238,7 +238,7 @@ const SidebarBuilder = () => {
                                 <ChevronDown
                                     className={`h-4 w-4 transition-transform duration-300 ${
                                         activeCategory === category.id
-                                            ? 'rotate-180 text-teal-400'
+                                            ? 'text-primary-600 rotate-180'
                                             : 'text-slate-400'
                                     }`}
                                 />
@@ -347,6 +347,7 @@ const SidebarBuilder = () => {
                             </AnimatePresence>
                         </motion.div>
                     ))}
+                    <button>Autodesctruvtion</button>
                 </AnimatePresence>
             </div>
         </div>

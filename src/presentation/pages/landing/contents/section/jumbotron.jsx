@@ -77,7 +77,7 @@ const Jumbotron = () => {
     return (
         <div
             ref={containerRef}
-            className="-mt-16 w-full overflow-hidden"
+            className="gradientBack2 -mt-16 w-full overflow-hidden"
             style={{ perspective: 1000 }}
             id="home"
         >
@@ -86,7 +86,7 @@ const Jumbotron = () => {
                 className="relative mx-auto h-[800px] max-w-[1300px]"
             >
                 <div className="fade relative top-[100px]">
-                    <h3 className="relative top-[60px] left-6 text-[14px] text-slate-500 md:text-[30px]">
+                    <h3 className="relative top-[60px] left-6 text-[14px] text-slate-500 md:text-[30px] dark:text-white">
                         {t('banner.welcome')}
                     </h3>
                     <h1 className="absolute top-[80px] bg-gradient-to-b from-gray-50 to-slate-700 bg-clip-text text-[160px] text-transparent md:relative md:top-auto md:text-[240px]">

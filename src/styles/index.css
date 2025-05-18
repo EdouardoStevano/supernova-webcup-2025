@@ -19,7 +19,6 @@ html,
 body {
     height: 100%;
     scroll-behavior: smooth;
-    /* overflow: hidden; */
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
@@ -192,6 +191,12 @@ section {
 
 .gradientBack1 {
     background-image: url('../presentation/assets/background/TestGradient1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.gradientBack2 {
+    background-image: url('../presentation/assets/background/banner.png');
     background-size: cover;
     background-position: center;
 }

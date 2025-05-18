@@ -11,6 +11,11 @@ const MainBuilder = () => {
 
     const backgrounds = [
         {
+            name: 'Default',
+            value: 'default-bg',
+            preview: 'bg-gradient-to-r from-[#fff] to-[#fff]',
+        },
+        {
             name: 'Dramatic',
             value: 'dramatic-bg',
             preview: 'bg-gradient-to-r from-[#1f1c2c] to-[#928dab]',
@@ -73,9 +78,9 @@ const MainBuilder = () => {
                 </div>
             )}
 
-            <div className="glass-panel mb-4 border-purple-500/30 p-4">
-                <div className="flex items-center justify-between">
-                    <h2 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-2xl font-bold text-transparent">
+            <div className="glass-panel mb-1 h-screen">
+                <div className="mb-2 flex items-center justify-between">
+                    <h2 className="text-2xl text-gray-700">
                         {farewellPage.tone
                             ? `${farewellPage.tone.charAt(0).toUpperCase() + farewellPage.tone.slice(1)} Farewell`
                             : 'Your Farewell Page'}
@@ -151,7 +156,7 @@ const MainBuilder = () => {
 
                         {/* Preview Button */}
                         <motion.button
-                            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 font-medium"
+                            className="bg-primary-500 flex items-center gap-2 rounded-full px-4 py-2 font-medium text-white"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setShowPreview(true)}
@@ -162,7 +167,7 @@ const MainBuilder = () => {
 
                         {/* Share Button */}
                         <motion.button
-                            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-2 font-medium"
+                            className="bg-primary-500 flex items-center gap-2 rounded-full px-4 py-2 font-medium text-white"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -171,10 +176,10 @@ const MainBuilder = () => {
                         </motion.button>
                     </div>
                 </div>
-            </div>
 
-            <div className="glass-panel custom-scrollbar flex-1 overflow-auto p-6">
-                <EditorCanvas />
+                <div className="glass-panel custom-scrollbar h-full flex-1 overflow-auto">
+                    <EditorCanvas />
+                </div>
             </div>
         </div>
     );

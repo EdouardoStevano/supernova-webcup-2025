@@ -8,6 +8,8 @@ import ConnectionStatus from '../../presentation/components/common/connectionSta
 import ProtectedRoute from '../../guards/protectedRoutes';
 import Assistance from '../../presentation/pages/assistance';
 
+import ProjectGraveYard from '../../presentation/components/project_graveyard';
+import { LeaderboardTop3 } from '../../presentation/components/podium';
 // Globale Routes
 const Layout = lazy(() => import('../../presentation/pages'));
 
@@ -79,6 +81,15 @@ const RoutesConfig = () => {
                             path="assitance/ai"
                             element={<AssistanceRoutes />}
                         />
+                        <Route
+                            path="assitance/project-graveyard"
+                            element={<ProjectGraveYard />}
+                        />
+                        <Route
+                            path="leaderboard"
+                            element={<LeaderboardTop3 />}
+                        />
+
                         {/* Builder Pages */}
                         <Route path="builder/*" element={<BuilderRoutes />} />
 

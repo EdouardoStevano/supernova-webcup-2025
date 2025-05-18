@@ -81,7 +81,7 @@ const EditorCanvas = () => {
         >
             <div
                 id="farewell-canvas"
-                className={`relative h-[80vh] w-full overflow-hidden rounded-2xl border-4 border-white/20 shadow-xl ${
+                className={`relative h-[87vh] w-full overflow-hidden rounded-3xl border-4 border-dotted border-white/20 shadow-xl ${
                     typeof farewellPage.background === 'string'
                         ? farewellPage.background
                         : ''
@@ -97,7 +97,7 @@ const EditorCanvas = () => {
                     }
                 }}
             >
-                <div className="noisy-bg h-full w-full">
+                <div className="noisy-bg animate-zoom h-full w-full">
                     {farewellPage.elements.map((element) => (
                         <BuildingBlock
                             key={element.id}

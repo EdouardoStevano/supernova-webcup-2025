@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import image1 from '../../../assets/illustrations/auth2.jpg';
+
 // Custom hook for tracking mouse position
 const useMousePosition = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -22,10 +24,10 @@ const useMousePosition = () => {
 };
 
 const menuItems = [
-    { id: 1, icon: '🏠', label: 'Home' },
-    { id: 2, icon: '📱', label: 'Contact' },
-    { id: 3, icon: '📄', label: 'About' },
-    { id: 4, icon: '🔍', label: 'Search' },
+    { id: 1, icon: image1, label: 'Espace création' },
+    { id: 2, icon: image1, label: 'Comunauté' },
+    { id: 3, icon: image1, label: 'Cimétière des projets' },
+    { id: 4, icon: image1, label: 'Hall of fame' },
 ];
 
 const BottomMenu = () => {
@@ -44,13 +46,12 @@ const BottomMenu = () => {
                     onClick={() => setIsOpen(!isOpen)}
                     className="bg-white-600 flex items-center gap-3 rounded-2xl bg-white px-1 py-1 text-[12px] text-gray-700 shadow-lg transition-colors hover:bg-[#d85dc1] hover:text-white"
                 >
-                    <div className="rounded-xl bg-purple-600 p-2">
-                        <img
-                            src="/menu-icon.png"
-                            alt="Menu"
-                            className="h-6 w-6"
-                        />
-                    </div>
+                    <span
+                        className="h-10 w-10 rounded-xl bg-[#521f48] bg-cover bg-center bg-no-repeat"
+                        style={{
+                            backgroundImage: `url(${image1})`,
+                        }}
+                    />
                     {t('floatBtn.title')}
                     <motion.span
                         animate={{ rotate: isOpen ? 180 : 0 }}
@@ -109,9 +110,12 @@ const BottomMenu = () => {
                                     }}
                                     whileHover={{ scale: 1.1 }}
                                 >
-                                    <span className="rounded-xl bg-[#d85dc1] p-2">
-                                        {item.icon}
-                                    </span>
+                                    <span
+                                        className="h-10 w-10 rounded-xl bg-[#d85dc1] bg-cover bg-center bg-no-repeat"
+                                        style={{
+                                            backgroundImage: `url(${item.icon})`,
+                                        }}
+                                    />
                                     <span>{item.label}</span>
                                 </motion.button>
                             ))}

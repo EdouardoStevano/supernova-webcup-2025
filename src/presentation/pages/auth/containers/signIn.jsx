@@ -132,7 +132,7 @@ const SignIn = () => {
                     <div className="hidden w-[30%] flex-col items-center justify-around lg:flex">
                         <div className="fadeIn flex gap-6">
                             <div className="authImage1 floating-element-vertical bg-secondary-600 absolute top-[14vh] left-[10vw] h-[40%] w-[20%] -rotate-12 rounded-2xl rounded-b-[100%] shadow-xl shadow-slate-300 outline outline-offset-2 outline-yellow-300 transition hover:-translate-y-7 dark:shadow-slate-800"></div>
-                            <div className="sign-image3 border-opacity-15 bg-opacity-25 shadow-large absolute bottom-[20vh] left-[20vw] mt-[130px] h-[180px] w-[180px] rounded-full border-1 border-gray-300 bg-slate-300/20 shadow-slate-300 backdrop-blur-sm transition hover:scale-110 dark:shadow-slate-700">
+                            <div className="sign-image3 shadow-large border-opacity-15 bg-opacity-25 absolute bottom-[20vh] left-[20vw] mt-[130px] h-[180px] w-[180px] rounded-full border-1 border-gray-300 bg-slate-300/20 shadow-slate-300 backdrop-blur-sm transition hover:scale-110 dark:shadow-slate-700">
                                 <svg
                                     className="turnInfinite absolute h-[180px] w-[180px]"
                                     viewBox="0 0 200 200"
