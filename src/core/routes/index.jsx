@@ -29,6 +29,7 @@ const VideoIa = lazy(
 );
 
 const SouvenirRoutes = lazy(() => import('./souvenir-route'));
+const LederRoutes = lazy(() => import('.'));
 // ------------------------------------------------------------------------------------------------------
 
 // Redirection pages
@@ -104,6 +105,12 @@ const RoutesConfig = () => {
                             <Route
                                 path="remember/*"
                                 element={<SouvenirRoutes />}
+                            />
+
+                            {/* Page de Souvenir */}
+                            <Route
+                                path="leaderboard/*"
+                                element={<LeaderboardTop3 />}
                             />
 
                             {/* Sous-routes pour les redirections */}

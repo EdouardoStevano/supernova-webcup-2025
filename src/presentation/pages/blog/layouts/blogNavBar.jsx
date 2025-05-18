@@ -376,6 +376,44 @@ const BlogNavBar = () => {
                         ))}
                     </ul>
                 </div>
+
+                <div
+                    style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 16,
+                        background: '#23272a',
+                        borderRadius: 12,
+                        padding: '12px 16px',
+                        marginTop: 24,
+                    }}
+                >
+                    <img
+                        src={user.avatar}
+                        alt="avatar"
+                        style={{
+                            width: 48,
+                            height: 48,
+                            borderRadius: '50%',
+                            border: '2px solid #ce47bc',
+                        }}
+                    />
+                    <div style={{ flex: 1 }}>
+                        <div
+                            style={{
+                                color: '#fff',
+                                fontWeight: 'bold',
+                                fontSize: 16,
+                            }}
+                        >
+                            {user.name}
+                        </div>
+                        <div style={{ color: '#b9bbbe', fontSize: 13 }}>
+                            {user.email}
+                        </div>
+                    </div>
+                </div>
             </aside>
         </div>
     );
