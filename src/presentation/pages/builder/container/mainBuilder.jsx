@@ -3,11 +3,13 @@ import EditorCanvas from '../../../components/builder/EditorCanvas';
 import { useFarewell } from '../../../../context/FarewellContext';
 import { motion } from 'framer-motion';
 import { Share2, Palette, Image as ImageIcon, Eye } from 'lucide-react';
+import { exportFarewellPageWithEmbedding } from '../../../utility/exportUtil';
 
 const MainBuilder = () => {
     const { farewellPage, setBackground } = useFarewell();
     const fileInputRef = useRef(null);
     const [showPreview, setShowPreview] = useState(false);
+    const [isExporting, setIsExporting] = useState(false);
 
     const backgrounds = [
         {
@@ -54,6 +56,20 @@ const MainBuilder = () => {
         if (file) {
             const url = URL.createObjectURL(file);
             setBackground({ type: 'custom-image', url });
+        }
+    };
+
+    // Handle export with embedding
+
+    const handleExport = async () => {
+        setIsExporting(true);
+        try {
+            await exportFarewellPageWithEmbedding(farewellPage);
+        } catch (error) {
+            console.error('Error exporting farewell page:', error);
+            // You could add a toast notification here
+        } finally {
+            setIsExporting(false);
         }
     };
 
@@ -170,6 +186,8 @@ const MainBuilder = () => {
                             className="bg-primary-500 flex items-center gap-2 rounded-full px-4 py-2 font-medium text-white"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={handleExport}
+                            disabled={isExporting}
                         >
                             <Share2 className="h-4 w-4" />
                             Publish
