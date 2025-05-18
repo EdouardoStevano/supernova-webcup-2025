@@ -2,23 +2,18 @@ import { BriefcaseIcon, HomeIcon, Send, ShieldAlert } from 'lucide-react';
 
 export const menus = [
     {
-        text: 'Dashboards',
+        text: 'Statistiques',
         icon: <HomeIcon />,
         link: '/dashboard/home',
     },
     {
-        text: 'Jobs',
+        text: 'Données',
         icon: <BriefcaseIcon />,
-        link: '/dashboard/job-list',
+        link: '/dashboard/data',
     },
     {
-        text: 'Messages',
+        text: 'Utilisateurs',
         icon: <Send />,
         link: '/dashboard/message',
-    },
-    {
-        text: 'feature',
-        icon: <ShieldAlert />,
-        link: '/dashboard/feature',
     },
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Outlet } from 'react-router-dom';
 
 const Auth = () => {

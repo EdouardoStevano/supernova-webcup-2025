@@ -137,11 +137,12 @@ const DashboardNavbar = ({ menuGroups }) => {
             <div className="z-20 m-4 flex max-w-[1400px] flex-col items-center justify-between rounded-2xl bg-white/80 p-2 md:m-0 md:w-full md:flex-row md:bg-transparent md:px-14">
                 <div className="hidden items-center md:flex">
                     <img
-                        src="/logo/Asset_3.png"
+                        src="/favicon.svg"
                         alt="Logo"
-                        className="h-auto w-16 transition-all sm:w-20 md:w-24 lg:w-28"
+                        className="h-auto w-16 transition-all md:w-10"
                         id="tour1"
                     />
+                    <span className="ml-2">TheEndPage</span>
                 </div>
 
                 <nav className="flex items-center">

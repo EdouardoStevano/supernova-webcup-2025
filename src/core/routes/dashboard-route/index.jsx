@@ -11,6 +11,9 @@ const DashboardLayout = lazy(
 const DashboardHome = lazy(
     () => import('../../../presentation/pages/dashboard/container/home')
 );
+const DashboardData = lazy(
+    () => import('../../../presentation/pages/dashboard/container/data')
+);
 const DashboardProfile = lazy(
     () => import('../../../presentation/pages/dashboard/container/profile')
 );
@@ -26,6 +29,7 @@ const RedirectRoute = () => {
                 <Route index element={<Navigate to="/dashboard/home" />} />
                 <Route element={<ProtectedRoute requiredRoles={['admin']} />}>
                     <Route path="home" element={<DashboardHome />} />
+                    <Route path="data" element={<DashboardData />} />
                     <Route path="profile" element={<DashboardProfile />} />
                 </Route>
 

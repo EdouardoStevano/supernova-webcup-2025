@@ -7,7 +7,7 @@ import { menus } from './constants/navigation';
 
 const DashboardPage = () => {
     return (
-        <div className="h-screen max-h-[100vh] overflow-hidden bg-gray-200">
+        <div className="h-screen max-h-[100vh] cursor-auto overflow-hidden bg-gray-200">
             <DashboardNavbar menuGroups={menus} />
 
             <div className="content flex h-[86%] w-full justify-center overflow-y-auto">

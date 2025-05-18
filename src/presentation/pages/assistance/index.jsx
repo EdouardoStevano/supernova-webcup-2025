@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import AudioVisualizer from '../../components/blobVisual';
 import { StartConversation } from '../../components/blobVisual/startConversation';
-import { Mic, MicOff } from 'lucide-react';
 import TextInputBar from '../../components/blobVisual/textareaBar';
 import { getEvaluation } from '../../components/iaService/getIAresponse';
 import { ViewMessage } from '../../components/blobVisual/viewMessage';
