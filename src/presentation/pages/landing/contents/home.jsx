@@ -10,10 +10,15 @@ import Contact from './section/contact';
 import Testimonials from './section/testimonials';
 import MarqueePartener from './section/MarqueePartener';
 import AnimatedCursor from '../../../components/common/cursor';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
  * @desc: Landing page avec scroll fluide et toasts
  */
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Landing = () => {
     return (
         <div className="overflow-hidden0 z-1 overflow-hidden text-gray-800">

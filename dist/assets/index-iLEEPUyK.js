@@ -1,0 +1,67 @@
+const __vite__mapDeps = (
+    i,
+    m = __vite__mapDeps,
+    d = m.f ||
+        (m.f = [
+            'assets/index-PCibCBij.js',
+            'assets/index-BoZEYj4b.js',
+            'assets/index-G9epB887.css',
+            'assets/signIn-DZKI6jUF.js',
+            'assets/index-DPJ-op1g.js',
+            'assets/index--PclSZn2.js',
+            'assets/index-BAK5nF8x.js',
+            'assets/Cube-found-ChOUz20m.js',
+            'assets/authService-Dw-SZnhP.js',
+            'assets/signUp-DcCZQOci.js',
+            'assets/index-SALmAzEP.js',
+            'assets/index-q5K6F14o.js',
+        ])
+) => i.map((i) => d[i]);
+import {
+    j as t,
+    R as n,
+    a as e,
+    N as a,
+    r as s,
+    _ as o,
+} from './index-BoZEYj4b.js';
+const _ = s.lazy(() =>
+        o(() => import('./index-PCibCBij.js'), __vite__mapDeps([0, 1, 2]))
+    ),
+    i = s.lazy(() =>
+        o(
+            () => import('./signIn-DZKI6jUF.js'),
+            __vite__mapDeps([3, 1, 2, 4, 5, 6, 7, 8])
+        )
+    ),
+    r = s.lazy(() =>
+        o(
+            () => import('./signUp-DcCZQOci.js'),
+            __vite__mapDeps([9, 1, 2, 4, 7, 5, 6])
+        )
+    ),
+    u = s.lazy(() =>
+        o(
+            () => import('./index-SALmAzEP.js'),
+            __vite__mapDeps([10, 1, 2, 6, 5, 7, 11])
+        )
+    ),
+    p = () =>
+        t.jsxs(n, {
+            children: [
+                t.jsxs(e, {
+                    path: '',
+                    element: t.jsx(_, {}),
+                    children: [
+                        t.jsx(e, {
+                            index: !0,
+                            element: t.jsx(a, { to: '/auth/signin' }),
+                        }),
+                        t.jsx(e, { path: 'signin', element: t.jsx(i, {}) }),
+                        t.jsx(e, { path: 'signup', element: t.jsx(r, {}) }),
+                    ],
+                }),
+                t.jsx(e, { path: '*', element: t.jsx(u, {}) }),
+            ],
+        });
+export { p as default };

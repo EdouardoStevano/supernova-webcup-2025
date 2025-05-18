@@ -1,0 +1,54 @@
+const __vite__mapDeps = (
+    i,
+    m = __vite__mapDeps,
+    d = m.f ||
+        (m.f = [
+            'assets/index-BAwYOo9J.js',
+            'assets/index-i9ws2I_8.js',
+            'assets/index-Dr9HVKrp.css',
+            'assets/mainBuilder-uEndOP5O.js',
+            'assets/index-HEJIVRFa.js',
+            'assets/index-Bph5bGAK.js',
+            'assets/index-D7RVabCY.js',
+            'assets/Cube-found-ChOUz20m.js',
+            'assets/index-D_wSXCHA.js',
+        ])
+) => i.map((i) => d[i]);
+import {
+    j as e,
+    R as r,
+    a as t,
+    N as a,
+    r as s,
+    _ as o,
+} from './index-i9ws2I_8.js';
+const i = s.lazy(() =>
+        o(() => import('./index-BAwYOo9J.js'), __vite__mapDeps([0, 1, 2]))
+    ),
+    _ = s.lazy(() =>
+        o(() => import('./mainBuilder-uEndOP5O.js'), __vite__mapDeps([3, 1, 2]))
+    ),
+    u = s.lazy(() =>
+        o(
+            () => import('./index-HEJIVRFa.js'),
+            __vite__mapDeps([4, 1, 2, 5, 6, 7, 8])
+        )
+    ),
+    l = () =>
+        e.jsxs(r, {
+            children: [
+                e.jsxs(t, {
+                    path: '',
+                    element: e.jsx(i, {}),
+                    children: [
+                        e.jsx(t, {
+                            index: !0,
+                            element: e.jsx(a, { to: '/builder/main' }),
+                        }),
+                        e.jsx(t, { path: 'main', element: e.jsx(_, {}) }),
+                    ],
+                }),
+                e.jsx(t, { path: '*', element: e.jsx(u, {}) }),
+            ],
+        });
+export { l as default };

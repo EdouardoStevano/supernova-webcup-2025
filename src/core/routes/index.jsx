@@ -6,6 +6,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import ConnectionStatus from '../../presentation/components/common/connectionStatus';
 import ProtectedRoute from '../../guards/protectedRoutes';
+import Assistance from '../../presentation/pages/assistance';
+
 // Globale Routes
 const Layout = lazy(() => import('../../presentation/pages'));
 
@@ -17,6 +19,9 @@ const RedirectionRoutes = lazy(() => import('./redirect-route'));
 const AssistanceRoutes = lazy(() => import('./assistance-route'));
 const LandingRoutes = lazy(() => import('./landing-route'));
 const BuilderRoutes = lazy(() => import('./builder-route'));
+const BlogRoutes = lazy(() => import('./blog-route'));
+
+const SouvenirRoutes = lazy(() => import('./souvenir-route'));
 // ------------------------------------------------------------------------------------------------------
 
 // Redirection pages
@@ -76,6 +81,12 @@ const RoutesConfig = () => {
                         />
                         {/* Builder Pages */}
                         <Route path="builder/*" element={<BuilderRoutes />} />
+
+                        <Route path="blog/*" element={<BlogRoutes />} />
+
+                        {/* Page de Souvenir */}
+                        <Route path="souvenir/*" element={<SouvenirRoutes />} />
+
                         {/* Sous-routes pour les redirections */}
                         <Route
                             path="redirect/*"

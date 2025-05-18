@@ -1,0 +1,524 @@
+import { j as d, r, O as se } from './index-i9ws2I_8.js';
+var l = function () {
+    return (
+        (l =
+            Object.assign ||
+            function (a) {
+                for (var u, o = 1, i = arguments.length; o < i; o++) {
+                    u = arguments[o];
+                    for (var c in u)
+                        Object.prototype.hasOwnProperty.call(u, c) &&
+                            (a[c] = u[c]);
+                }
+                return a;
+            }),
+        l.apply(this, arguments)
+    );
+};
+function w(e, a, u) {
+    var o = r.useRef(a);
+    r.useEffect(function () {
+        o.current = a;
+    }),
+        r.useEffect(
+            function () {
+                var i = window,
+                    c = function (v) {
+                        return o.current(v);
+                    };
+                return (
+                    i == null || i.addEventListener(e, c),
+                    function () {
+                        i == null || i.removeEventListener(e, c);
+                    }
+                );
+            },
+            [e, u]
+        );
+}
+var fe = function () {
+    var e = r.useState({
+            info: '',
+            Android: function () {
+                return null;
+            },
+            BlackBerry: function () {
+                return null;
+            },
+            IEMobile: function () {
+                return null;
+            },
+            iOS: function () {
+                return null;
+            },
+            iPad: function () {
+                return null;
+            },
+            OperaMini: function () {
+                return null;
+            },
+            any: function () {
+                return !1;
+            },
+        }),
+        a = e[0],
+        u = e[1];
+    return (
+        r.useEffect(function () {
+            if (typeof navigator < 'u') {
+                var o = navigator.userAgent;
+                u(function (i) {
+                    return l(l({}, i), {
+                        info: o,
+                        Android: function () {
+                            return o.match(/Android/i);
+                        },
+                        BlackBerry: function () {
+                            return o.match(/BlackBerry/i);
+                        },
+                        IEMobile: function () {
+                            return o.match(/IEMobile/i);
+                        },
+                        iOS: function () {
+                            return o.match(/iPhone|iPad|iPod/i);
+                        },
+                        iPad: function () {
+                            return !!(
+                                o.match(/Mac/) &&
+                                navigator.maxTouchPoints &&
+                                navigator.maxTouchPoints > 2
+                            );
+                        },
+                        OperaMini: function () {
+                            return o.match(/Opera Mini/i);
+                        },
+                        any: function () {
+                            var c, v, s, S, g;
+                            return !!(
+                                (!(
+                                    (c = i.Android()) === null || c === void 0
+                                ) &&
+                                    c.length) ||
+                                (!(
+                                    (v = i.BlackBerry()) === null ||
+                                    v === void 0
+                                ) &&
+                                    v.length) ||
+                                (!((s = i.iOS()) === null || s === void 0) &&
+                                    s.length) ||
+                                i.iPad() ||
+                                (!(
+                                    (S = i.OperaMini()) === null || S === void 0
+                                ) &&
+                                    S.length) ||
+                                (!(
+                                    (g = i.IEMobile()) === null || g === void 0
+                                ) &&
+                                    g.length)
+                            );
+                        },
+                    });
+                });
+            }
+        }, []),
+        a
+    );
+};
+function re(e, a) {
+    for (var u = [], o = 2; o < arguments.length; o++) u[o - 2] = arguments[o];
+    if (typeof a != 'function')
+        throw new TypeError('callback must be a function');
+    for (var i = Object(e), c = i.length >>> 0, v = u[2], s = 0; s < c; s++) {
+        var S = i[s];
+        if (a.call(v, S, s, i)) return S;
+    }
+}
+function de(e) {
+    var a = e.clickables,
+        u =
+            a === void 0
+                ? [
+                      'a',
+                      'input[type="text"]',
+                      'input[type="email"]',
+                      'input[type="number"]',
+                      'input[type="submit"]',
+                      'input[type="image"]',
+                      'label[for]',
+                      'select',
+                      'textarea',
+                      'button',
+                      '.link',
+                  ]
+                : a,
+        o = e.children,
+        i = e.color,
+        c = i === void 0 ? '220, 90, 90' : i,
+        v = e.innerScale,
+        s = v === void 0 ? 0.6 : v,
+        S = e.innerSize,
+        g = S === void 0 ? 8 : S,
+        C = e.innerStyle,
+        k = e.outerAlpha,
+        O = k === void 0 ? 0.4 : k,
+        M = e.outerScale,
+        q = M === void 0 ? 6 : M,
+        F = e.outerSize,
+        T = F === void 0 ? 8 : F,
+        V = e.outerStyle,
+        X = e.showSystemCursor,
+        L = X === void 0 ? !1 : X,
+        Y = e.trailingSpeed,
+        N = Y === void 0 ? 8 : Y,
+        x = r.useMemo(
+            function () {
+                return {
+                    children: o,
+                    color: c,
+                    innerScale: s,
+                    innerSize: g,
+                    innerStyle: C,
+                    outerAlpha: O,
+                    outerScale: q,
+                    outerSize: T,
+                    outerStyle: V,
+                };
+            },
+            [o, c, s, g, C, O, q, T, V]
+        ),
+        y = r.useRef(null),
+        p = r.useRef(null),
+        j = r.useRef(null),
+        U = r.useRef(null),
+        G = r.useState({ x: 0, y: 0 }),
+        E = G[0],
+        ie = G[1],
+        H = r.useState(!1),
+        J = H[0],
+        K = H[1],
+        Q = r.useState(x),
+        n = Q[0],
+        I = Q[1],
+        W = r.useState(!1),
+        R = W[0],
+        m = W[1],
+        Z = r.useState(!1),
+        $ = Z[0],
+        z = Z[1],
+        D = r.useRef(0),
+        _ = r.useRef(0),
+        oe = r.useCallback(function (f) {
+            var t = f.clientX,
+                h = f.clientY;
+            ie({ x: t, y: h }),
+                p.current !== null &&
+                    ((p.current.style.top = ''.concat(h, 'px')),
+                    (p.current.style.left = ''.concat(t, 'px'))),
+                (D.current = t),
+                (_.current = h);
+        }, []),
+        B = r.useCallback(
+            function (f) {
+                U.current !== void 0 &&
+                    ((E.x += (D.current - E.x) / N),
+                    (E.y += (_.current - E.y) / N),
+                    y.current !== null &&
+                        ((y.current.style.top = ''.concat(E.y, 'px')),
+                        (y.current.style.left = ''.concat(E.x, 'px')))),
+                    (U.current = f),
+                    (j.current = requestAnimationFrame(B));
+            },
+            [j]
+        );
+    r.useEffect(
+        function () {
+            return (
+                (j.current = requestAnimationFrame(B)),
+                function () {
+                    j.current !== null && cancelAnimationFrame(j.current);
+                }
+            );
+        },
+        [B]
+    );
+    var ee = function (f, t) {
+            return ''.concat(parseInt(String(f * t)), 'px');
+        },
+        b = r.useCallback(function (f, t, h) {
+            f && ((f.style.height = ee(t, h)), (f.style.width = ee(t, h)));
+        }, []),
+        ue = r.useCallback(function () {
+            return m(!0);
+        }, []),
+        ce = r.useCallback(function () {
+            return m(!1);
+        }, []),
+        ae = r.useCallback(function () {
+            return K(!0);
+        }, []),
+        le = r.useCallback(function () {
+            return K(!1);
+        }, []);
+    w('mousemove', oe),
+        w('mousedown', ue),
+        w('mouseup', ce),
+        w('mouseover', ae),
+        w('mouseout', le),
+        r.useEffect(
+            function () {
+                R
+                    ? (b(p.current, n.innerSize, n.innerScale),
+                      b(y.current, n.outerSize, n.outerScale))
+                    : (b(p.current, n.innerSize, 1),
+                      b(y.current, n.outerSize, 1));
+            },
+            [n.innerSize, n.innerScale, n.outerSize, n.outerScale, b, R]
+        ),
+        r.useEffect(
+            function () {
+                $ &&
+                    (b(p.current, n.innerSize, n.innerScale * 1.2),
+                    b(y.current, n.outerSize, n.outerScale * 1.4));
+            },
+            [n.innerSize, n.innerScale, n.outerSize, n.outerScale, b, $]
+        ),
+        r.useEffect(
+            function () {
+                p.current == null ||
+                    y.current == null ||
+                    (J
+                        ? ((p.current.style.opacity = '1'),
+                          (y.current.style.opacity = '1'))
+                        : ((p.current.style.opacity = '0'),
+                          (y.current.style.opacity = '0')));
+            },
+            [J]
+        ),
+        r.useEffect(
+            function () {
+                var f = document.querySelectorAll(
+                    u
+                        .map(function (t) {
+                            return typeof t == 'object' && t != null && t.target
+                                ? t.target
+                                : (t ?? '');
+                        })
+                        .join(',')
+                );
+                return (
+                    f.forEach(function (t) {
+                        L || (t.style.cursor = 'none');
+                        var h =
+                                typeof u == 'object'
+                                    ? re(u, function (A) {
+                                          return (
+                                              typeof A == 'object' &&
+                                              t.matches(A.target)
+                                          );
+                                      })
+                                    : {},
+                            P = l(l({}, x), h);
+                        t.addEventListener('mouseover', function () {
+                            m(!0), I(P);
+                        }),
+                            t.addEventListener('click', function () {
+                                m(!0), z(!1);
+                            }),
+                            t.addEventListener('mousedown', function () {
+                                z(!0);
+                            }),
+                            t.addEventListener('mouseup', function () {
+                                m(!0);
+                            }),
+                            t.addEventListener('mouseout', function () {
+                                m(!1), z(!1), I(x);
+                            });
+                    }),
+                    function () {
+                        f.forEach(function (t) {
+                            var h =
+                                    typeof u == 'object'
+                                        ? re(u, function (A) {
+                                              return (
+                                                  typeof A == 'object' &&
+                                                  t.matches(A.target)
+                                              );
+                                          })
+                                        : {},
+                                P = l(l({}, x), h);
+                            t.removeEventListener('mouseover', function () {
+                                m(!0), I(P);
+                            }),
+                                t.removeEventListener('click', function () {
+                                    m(!0), z(!1);
+                                }),
+                                t.removeEventListener('mousedown', function () {
+                                    z(!0);
+                                }),
+                                t.removeEventListener('mouseup', function () {
+                                    m(!0);
+                                }),
+                                t.removeEventListener('mouseout', function () {
+                                    m(!1), z(!1), I(x);
+                                });
+                        });
+                    }
+                );
+            },
+            [R, u, L, x]
+        ),
+        r.useEffect(
+            function () {
+                typeof window == 'object' &&
+                    !L &&
+                    (document.body.style.cursor = 'none');
+            },
+            [L]
+        );
+    var ne = {
+            zIndex: 999,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'fixed',
+            borderRadius: '50%',
+            pointerEvents: 'none',
+            transform: 'translate(-50%, -50%)',
+            transition:
+                'opacity 0.15s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out',
+        },
+        te = {
+            cursorInner: l(
+                l(
+                    {
+                        width: n.children ? 'auto' : n.innerSize,
+                        height: n.children ? 'auto' : n.innerSize,
+                        backgroundColor: n.children
+                            ? 'transparent'
+                            : 'rgba('.concat(n.color, ', 1)'),
+                    },
+                    ne
+                ),
+                n.innerStyle && n.innerStyle
+            ),
+            cursorOuter: l(
+                l(
+                    {
+                        width: n.outerSize,
+                        height: n.outerSize,
+                        backgroundColor: 'rgba('
+                            .concat(n.color, ', ')
+                            .concat(n.outerAlpha, ')'),
+                    },
+                    ne
+                ),
+                n.outerStyle && n.outerStyle
+            ),
+        };
+    return d.jsxs(d.Fragment, {
+        children: [
+            d.jsx('div', { ref: y, style: te.cursorOuter }),
+            d.jsx(
+                'div',
+                l(
+                    { ref: p, style: te.cursorInner },
+                    {
+                        children: d.jsx(
+                            'div',
+                            l(
+                                {
+                                    style: {
+                                        opacity: n.children ? 1 : 0,
+                                        transition: 'opacity 0.3s ease-in-out',
+                                    },
+                                },
+                                { children: n.children }
+                            )
+                        ),
+                    }
+                )
+            ),
+        ],
+    });
+}
+function ve(e) {
+    var a = e.children,
+        u = e.clickables,
+        o = e.color,
+        i = e.innerScale,
+        c = e.innerSize,
+        v = e.innerStyle,
+        s = e.outerAlpha,
+        S = e.outerScale,
+        g = e.outerSize,
+        C = e.outerStyle,
+        k = e.showSystemCursor,
+        O = e.trailingSpeed,
+        M = fe();
+    return typeof navigator < 'u' && M.any()
+        ? d.jsx(d.Fragment, {})
+        : d.jsx(
+              de,
+              l(
+                  {
+                      clickables: u,
+                      color: o,
+                      innerScale: i,
+                      innerSize: c,
+                      innerStyle: v,
+                      outerAlpha: s,
+                      outerScale: S,
+                      outerSize: g,
+                      outerStyle: C,
+                      showSystemCursor: k,
+                      trailingSpeed: O,
+                  },
+                  { children: a }
+              )
+          );
+}
+function Se() {
+    return d.jsx('div', {
+        children: d.jsx(ve, {
+            innerSize: 8,
+            outerSize: 25,
+            color: '0, 0, 0, 0.5',
+            outerAlpha: 1,
+            innerScale: 1,
+            hasBlendMode: !0,
+            outerStyle: { border: '3px solid red' },
+            innerStyle: { backgroundColor: '#fff' },
+            outerScale: 2,
+            clickables: [
+                'a',
+                'input[type="text"]',
+                'input[type="email"]',
+                'input[type="number"]',
+                'input[type="submit"]',
+                'input[type="image"]',
+                'label[for]',
+                'select',
+                'textarea',
+                'button',
+                '.link',
+                {
+                    target: '.curso',
+                    options: {
+                        innerSize: 12,
+                        outerSize: 12,
+                        color: '255, 255, 255',
+                        outerAlpha: 0.3,
+                        innerScale: 0.7,
+                        outerScale: 5,
+                    },
+                },
+            ],
+        }),
+    });
+}
+const pe = () =>
+    d.jsxs('div', {
+        className: 'main-content overflow-y-auto sm:h-full sm:w-full',
+        children: [d.jsx(Se, {}), d.jsx(se, {})],
+    });
+export { pe as default };

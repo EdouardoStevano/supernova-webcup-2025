@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC } from 'react';
-import './style.css';
+import './style.scss';
 
 const ConnectionStatus = () => {
     const [isOnline, setIsOnline] = useState(false);
