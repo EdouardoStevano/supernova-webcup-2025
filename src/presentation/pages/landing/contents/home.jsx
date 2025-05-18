@@ -24,10 +24,10 @@ const Landing = () => {
         <div className="overflow-hidden0 z-1 overflow-hidden text-gray-800">
             <AnimatedCursor />
 
-            <section className="flex h-[110vh] flex-col items-center justify-center">
-                <Jumbotron />
-                <Marquee />
-            </section>
+            {/* <section className="flex h-[110vh] flex-col items-center justify-center"> */}
+            <Jumbotron />
+            <Marquee />
+            {/* </section> */}
 
             <section className="flex h-screen items-center justify-center text-white">
                 <Presentation />

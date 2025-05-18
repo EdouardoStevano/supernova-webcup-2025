@@ -14,6 +14,6 @@ export const menus = [
     {
         text: 'Utilisateurs',
         icon: <Send />,
-        link: '/dashboard/message',
+        link: '/dashboard/users',
     },
 ];

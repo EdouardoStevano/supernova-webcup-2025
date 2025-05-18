@@ -14,6 +14,9 @@ const DashboardHome = lazy(
 const DashboardData = lazy(
     () => import('../../../presentation/pages/dashboard/container/data')
 );
+const DashboardUsers = lazy(
+    () => import('../../../presentation/pages/dashboard/container/users')
+);
 const DashboardProfile = lazy(
     () => import('../../../presentation/pages/dashboard/container/profile')
 );
@@ -30,10 +33,11 @@ const RedirectRoute = () => {
                 <Route element={<ProtectedRoute requiredRoles={['admin']} />}>
                     <Route path="home" element={<DashboardHome />} />
                     <Route path="data" element={<DashboardData />} />
+                    <Route path="users" element={<DashboardUsers />} />
                     <Route path="profile" element={<DashboardProfile />} />
                 </Route>
 
-                <Route path="not-found" element={<DashboardNotFound />} />
+                <Route path="*" element={<DashboardNotFound />} />
             </Route>
         </Routes>
     );

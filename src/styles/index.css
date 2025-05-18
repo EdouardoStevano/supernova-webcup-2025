@@ -231,6 +231,12 @@ section {
     overflow: hidden;
 }
 
+.cardGrad {
+    background-image: url('../presentation/assets/background/BackCard.png');
+    background-size: cover;
+    background-position: center;
+}
+
 .line-back {
     background-image: url('../presentation/assets//illustrations/backLine.png');
     background-size: cover;

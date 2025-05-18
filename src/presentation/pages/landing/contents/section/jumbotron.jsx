@@ -77,7 +77,7 @@ const Jumbotron = () => {
     return (
         <div
             ref={containerRef}
-            className="gradientBack2 -mt-16 w-full overflow-hidden"
+            className="gradientBack2 h-scree -mt-16 w-full overflow-hidden"
             style={{ perspective: 1000 }}
             id="home"
         >

@@ -52,7 +52,7 @@ const Profile = () => {
     };
 
     return (
-        <div className="w-full max-w-[1300px] rounded-2xl bg-white p-8 shadow-lg">
+        <div className="swipeFadeUp w-full max-w-[1300px] rounded-2xl bg-white p-8 shadow-lg">
             <div className="mb-8 flex items-center gap-8">
                 <img
                     src={user.image || 'https://via.placeholder.com/150'}
