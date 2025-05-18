@@ -19,7 +19,7 @@ const SouvenirRoute = () => {
     return (
         <Routes>
             <Route path="" element={<SouvenirLayout />}>
-                <Route index element={<Navigate to="/souvenir/main" />} />
+                <Route index element={<Navigate to="/remember/main" />} />
                 <Route path="main" element={<SouvenirHome />} />
             </Route>
 

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import image1 from '../../../assets/illustrations/auth2.jpg';
-import { Link } from 'lucide-react';
-import { Links } from 'react-router-dom';
 
 // Custom hook for tracking mouse position
 const useMousePosition = () => {
@@ -26,21 +25,27 @@ const useMousePosition = () => {
 };
 
 const menuItems = [
-    { id: 1, icon: image1, label: 'Espace création', link: 'builder' },
-    { id: 2, icon: image1, label: 'Comunauté', link: 'blog' },
+    { id: 1, icon: image1, label: 'Espace création', link: '/builder' },
+    { id: 2, icon: image1, label: 'Communauté', link: '/blog' },
     {
         id: 3,
         icon: image1,
-        label: 'Cimétière des projets',
-        link: 'assitance/project-graveyard',
+        label: 'Cimetière des projets',
+        link: '/assitance/project-graveyard',
     },
-    { id: 4, icon: image1, label: 'Hall of fame', link: 'leaderboard' },
+    {
+        id: 3,
+        icon: image1,
+        label: 'Souvenir',
+        link: '/remember',
+    },
+    { id: 4, icon: image1, label: 'Hall of fame', link: '/leaderboard' },
 ];
 
 const BottomMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const mousePosition = useMousePosition();
-
+    const navigate = useNavigate();
     const { t } = useTranslation();
 
     return (
@@ -81,9 +86,7 @@ const BottomMenu = () => {
                             {menuItems.map((item, index) => (
                                 <motion.div key={item.id} className="mb-2">
                                     <motion.div
-                                        onClick={() =>
-                                            (window.location.href = `/${item.link}`)
-                                        }
+                                        onClick={() => navigate(item.link)}
                                         className="flex w-[200px] cursor-pointer items-center gap-2 rounded-2xl bg-white p-1 text-[13px] text-gray-600 shadow-md transition-colors hover:bg-purple-50"
                                         style={{
                                             marginBottom: `${mousePosition.y * 0.02}px`,

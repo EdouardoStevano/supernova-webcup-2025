@@ -1,12 +1,21 @@
-import { Crown, Smile, Meh, Frown, ArrowUp, ArrowDown } from 'lucide-react';
+import {
+    Crown,
+    Smile,
+    Meh,
+    Frown,
+    ArrowUp,
+    ArrowDown,
+    ArrowLeft,
+} from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
 import { LeaderboardList } from './components/list';
 import './style.css';
-import data from '../../../data/datasource/leaderBoard.json';
+import dataSource from '../../../data/datasource/leaderBoard.json';
+import { Link } from 'react-router-dom';
 
 const gradients = [
     'linear-gradient(to bottom, #ffffff 50%, #ffe57f 100%)',
-    'linear-gradient(to bottom, #d0e4fa 50%, #64b5f6 100%)',
+    'linear-gradient(to bottom, #e0e0e0 50%, #e8dada 100%)',
     'linear-gradient(to bottom, #ffffff 50%, #ce93d8 100%)',
 ];
 
@@ -48,34 +57,67 @@ function LeaderboardCard({ data, index }) {
                 willChange: 'transform',
             }}
         >
-            {/* animations inchangées */}
             {index === 0 && (
-                <div className="pointer-events-none absolute inset-0 z-0 flex items-start justify-center">
-                    <div className="sun-rays animate-spin-slow h-24 w-24 rounded-full bg-yellow-300 opacity-30 blur-2xl"></div>
-                </div>
+                <>
+                    <div className="pointer-events-none absolute inset-0 z-0 flex items-start justify-center">
+                        <div className="sun-rays animate-spin-slow h-24 w-24 rounded-full bg-yellow-300 opacity-30 blur-2xl" />
+                    </div>
+                    {/* GIFs */}
+                    <img
+                        src="/images/sad.GIF"
+                        className="absolute top-[-40px] left-[58%] -translate-x-1/2 transform"
+                        width={60}
+                    />
+                    <img
+                        src="/images/sad.GIF"
+                        className="absolute bottom-0 left-0"
+                        width={70}
+                    />
+                    <img
+                        src="/images/sad.GIF"
+                        className="absolute right-0 bottom-0"
+                        width={70}
+                    />
+                </>
             )}
+
             {index === 1 && (
-                <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                    <div className="cloud cloud1">
-                        <img src="/images/cloud.webp" alt="" />
-                    </div>
-                    <div className="cloud cloud2">
-                        <img src="/images/cloud.webp" alt="" />
-                    </div>
+                <div className="pointer-events-none absolute inset-0 z-0">
+                    <img
+                        src="/images/calm.GIF"
+                        className="absolute top-[-40px] left-[44%] -translate-x-1/2 transform"
+                        width={60}
+                    />
+                    <img
+                        src="/images/calm.GIF"
+                        className="absolute bottom-0 left-0"
+                        width={70}
+                    />
+                    <img
+                        src="/images/calm.GIF"
+                        className="absolute right-0 bottom-0"
+                        width={70}
+                    />
                 </div>
             )}
+
             {index === 2 && (
-                <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-                    {[...Array(10)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="raindrop"
-                            style={{
-                                left: `${Math.random() * 100}%`,
-                                animationDelay: `${Math.random() * 2}s`,
-                            }}
-                        />
-                    ))}
+                <div className="pointer-events-none absolute inset-0 z-0">
+                    <img
+                        src="/images/happy.gif"
+                        className="absolute top-[-40px] left-[58%] -translate-x-1/2 transform"
+                        width={60}
+                    />
+                    <img
+                        src="/images/happy.gif"
+                        className="absolute bottom-0 left-0"
+                        width={70}
+                    />
+                    <img
+                        src="/images/happy.gif"
+                        className="absolute right-0 bottom-0"
+                        width={70}
+                    />
                 </div>
             )}
 
@@ -100,7 +142,9 @@ function LeaderboardCard({ data, index }) {
                     {data.emotion}
                 </span>
             </div>
-
+            <p className="z-10 px-2 text-center text-[16px] font-bold text-gray-900">
+                {data.name}
+            </p>
             <p className="z-10 px-2 text-center text-sm text-gray-600 italic">
                 {data.description}
             </p>
@@ -120,29 +164,86 @@ function LeaderboardCard({ data, index }) {
 }
 
 export function LeaderboardTop3() {
+    const [players, setPlayers] = useState([]);
     const [top3, setTop3] = useState([]);
     const [others, setOthers] = useState([]);
+    const [prevPositions, setPrevPositions] = useState({}); // pour détecter le déplacement
 
     useEffect(() => {
-        const sorted = [...data];
-        setTop3(sorted.slice(0, 3));
-        setOthers(sorted.slice(3));
-        console.log(others);
-    }, [data]);
+        const initData = dataSource.map((item, index) => ({
+            ...item,
+            id: item.name || index, // identifiant unique
+        }));
 
-    if (top3.length === 0) return <p>Chargement...</p>;
+        setPlayers(initData);
+        setPrevPositions(
+            initData.reduce((acc, curr, i) => {
+                acc[curr.id] = i;
+                return acc;
+            }, {})
+        );
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const updatedPlayers = [...players].map((p) => ({
+                ...p,
+                // Simuler les changements :
+                positive: p.positive + Math.floor(Math.random() * 3),
+                negative: p.negative + Math.floor(Math.random() * 2),
+            }));
+
+            const sorted = [...updatedPlayers].sort(
+                (a, b) => b.positive - b.negative - (a.positive - a.negative)
+            );
+
+            const newPositions = {};
+            sorted.forEach((p, index) => {
+                newPositions[p.id] = index;
+            });
+
+            setPrevPositions(newPositions);
+            setPlayers(sorted);
+            setTop3(sorted.slice(0, 3));
+            setOthers(sorted.slice(3));
+        }, 2000); // toutes les 4 secondes
+
+        return () => clearInterval(interval);
+    }, [players]);
+
+    if (top3.length === 0)
+        return (
+            <div className="swipeUpDown flex h-screen w-full items-center justify-center">
+                <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-blue-600"></div>
+            </div>
+        );
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-white to-blue-50 py-10">
-            <h1 className="mb-8 text-3xl font-bold text-gray-800">
-                Leaderboard
-            </h1>
-            <div className="flex justify-center gap-6">
-                {top3.map((player, i) => (
-                    <LeaderboardCard key={i} data={player} index={i} />
-                ))}
+        <div className="gradientBack1 swipeUpFade animate-swipe-down">
+            <div className="pointBackground flex min-h-screen flex-col items-center justify-center bg-gray-200 py-10">
+                <Link
+                    to="/"
+                    className="fixed top-4 left-4 z-50 flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-gray-700 shadow-md transition-colors hover:bg-gray-50"
+                >
+                    <ArrowLeft size={20} />
+                    <span>Retour</span>
+                </Link>
+                <h1 className="mb-8 text-3xl font-bold text-gray-800">
+                    Leaderboard
+                </h1>
+                {/* <div className={'flex items-center gap-8'}> */}
+                <div className="flex justify-center gap-6">
+                    {top3.map((player, i) => (
+                        <LeaderboardCard
+                            key={player.id}
+                            data={player}
+                            index={i}
+                        />
+                    ))}
+                </div>
+                <LeaderboardList data={others} prevPositions={prevPositions} />
+                {/* </div> */}
             </div>
-            <LeaderboardList data={others} />
         </div>
     );
 }

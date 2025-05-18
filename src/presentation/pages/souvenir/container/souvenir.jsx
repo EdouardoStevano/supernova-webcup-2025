@@ -6,6 +6,7 @@ import { Experience } from '../../../components/souvenir/Experience';
 import ModalInfo from './modalInfo';
 import { useOpenModalBook } from '../../../hooks/useOpenModalBook';
 import ModalAddSouvenir from './modalAddSouvenir';
+import { Link } from 'react-router-dom';
 const MainSouvenir = () => {
     const { isModalOpen, closeModal, setSelectedItems, selectedItems } =
         useOpenModalBook();
@@ -32,6 +33,12 @@ const MainSouvenir = () => {
             >
                 Ajouter un souvenir
             </button>
+            <Link
+                className="absolute top-4 right-10 z-10 transform rounded-full bg-blue-200 px-4 py-2 font-bold text-blue-800 shadow transition duration-300 hover:scale-105 hover:bg-blue-300 hover:shadow-xl hover:ring-2 hover:ring-blue-400"
+                onClick={handleOpenModal}
+            >
+                Retour
+            </Link>
             <ModalAddSouvenir
                 handleCloseModal={handleCloseModal}
                 isModalOpen={modalOpen}

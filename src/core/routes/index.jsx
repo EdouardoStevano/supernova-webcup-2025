@@ -101,7 +101,7 @@ const RoutesConfig = () => {
 
                             {/* Page de Souvenir */}
                             <Route
-                                path="souvenir/*"
+                                path="remember/*"
                                 element={<SouvenirRoutes />}
                             />
 

@@ -75,7 +75,7 @@ export const UI = () => {
                                 }`}
                                 onClick={() => setPage(index)}
                             >
-                                {index === 0 ? 'Cover' : `Souvennir ${index}`}
+                                {index === 0 ? 'Cover' : `Souvenir ${index}`}
                             </button>
                         ))}
                         <button
