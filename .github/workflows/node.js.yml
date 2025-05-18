@@ -21,7 +21,7 @@ jobs:
             - name: Install dependencies
               run: npm install --legacy-peer-deps
             - name: Install sass-embedded
-              run: npm install -D sass-embedded
+              run: npm install -D sass-embedded --legacy-peer-deps
 
             - name: Build project
               run: npm run build
