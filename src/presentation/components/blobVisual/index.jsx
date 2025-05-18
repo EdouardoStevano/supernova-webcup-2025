@@ -75,7 +75,6 @@ export default function AudioVisualizer({ audioUrl,message }) {
         <Suspense fallback={null}>
           <DistortedSphere analyser={analyser} />
         </Suspense>
-        <OrbitControls />
       </Canvas>
       <ViewMessage message={message}/>
     </>

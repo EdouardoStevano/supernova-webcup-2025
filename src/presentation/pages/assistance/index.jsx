@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import AudioVisualizer from '../../components/blobVisual';
 import { StartConversation } from '../../components/blobVisual/startConversation';
-import { Mic, MicOff } from 'lucide-react';
 import TextInputBar from '../../components/blobVisual/textareaBar';
 import { getEvaluation } from '../../components/iaService/getIAresponse';
 
@@ -77,7 +76,6 @@ const Assistance = () => {
 
   const sendToTTS = async (text) => {
     try {
-      setMessage(text);
       const response = await fetch('https://tts-french-production.up.railway.app/generate_speech/', {
         method: 'POST',
         headers: {
@@ -93,6 +91,8 @@ const Assistance = () => {
 
       const localUrl = URL.createObjectURL(blob);
       setAudioUrl(localUrl);
+      setMessage(text);
+
     } catch (error) {
       console.error('Erreur TTS :', error);
     }
@@ -112,7 +112,7 @@ const Assistance = () => {
     <div className="relative min-h-screen pb-24">
       <StartConversation isOpen={isOpen} onAccept={handleAccept} onReject={stopSpeechRecognition} />
       {!isOpen && <TextInputBar onSubmit={handleMessage} />}
-      {audioUrl && <AudioVisualizer audioUrl={audioUrl} message={message} />}
+      {audioUrl && <AudioVisualizer audioUrl={audioUrl} message={" "+message} />}
 
     </div>
   );

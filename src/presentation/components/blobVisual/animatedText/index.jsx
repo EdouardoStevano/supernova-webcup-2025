@@ -23,7 +23,7 @@ const AnimatedText = ({ text }) => {
   return (
     <div className="animated-text">
       {displayedText.map((char, i) => (
-        <span key={i} className="char">
+        <span key={i} className="char text-[12px]">
           {char}
         </span>
       ))}

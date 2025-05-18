@@ -21,6 +21,7 @@ import Bell from '../../../assets/illustrations/Cube-found.png';
 // Importation des resources
 import { getAuthData } from '../../../../core/utils/authUtils';
 import authService from '../../../services/authService';
+import GoogleSignIn from './googleLogin';
 
 /**
  * @desc: Interface du Panel de connexion
@@ -272,6 +273,7 @@ const SignIn = () => {
                             >
                                 se connecter
                             </Button>
+                            <GoogleSignIn />
                             <Link
                                 to={'/auth/signup'}
                                 className="font-poppins mt-4 w-full text-center text-[13px] text-slate-800 dark:text-slate-200"
