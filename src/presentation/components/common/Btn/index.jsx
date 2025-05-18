@@ -33,6 +33,7 @@ const Button = memo(
         const variantStyles = {
             primary: 'bg-primary-500 text-white',
             secondary: 'bg-green-500 text-white',
+            sea: 'bg-blue-500 text-white',
             outline: 'border-2 border-primary-600 text-primary-600',
             ghost: 'bg-transparent text-gray-700',
         };

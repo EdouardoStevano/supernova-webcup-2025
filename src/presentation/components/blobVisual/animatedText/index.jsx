@@ -21,7 +21,7 @@ const AnimatedText = ({ text }) => {
     }, [text]);
 
     return (
-        <div className="animated-text">
+        <div className="animated-text text-gray-700">
             {displayedText.map((char, i) => (
                 <span key={i} className="char">
                     {char}

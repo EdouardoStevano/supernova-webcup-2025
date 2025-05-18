@@ -2,6 +2,7 @@ import { Tilt } from 'react-tilt';
 import ctaImage from '../../../assets/illustrations/auth2.jpg';
 import Button from '../../common/Btn';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const defaultOptions = {
     reverse: false, // reverse the tilt direction
@@ -52,12 +53,15 @@ const CTA = () => {
                     <p className="text-[14px] text-[#2c2c2c] dark:text-white">
                         {t('about.para')}
                     </p>
-                    <Button
-                        variant={'primary'}
-                        className="mt-7 rounded-xl p-4 px-7 text-white transition hover:scale-105"
-                    >
-                        {t('about.btn')}
-                    </Button>
+
+                    <Link to={'/leaderboard'}>
+                        <Button
+                            variant={'primary'}
+                            className="mt-7 rounded-xl p-4 px-7 text-white transition hover:scale-105"
+                        >
+                            {t('about.btn')}
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

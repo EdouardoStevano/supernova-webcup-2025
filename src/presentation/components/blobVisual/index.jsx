@@ -26,7 +26,7 @@ function DistortedSphere({ analyser }) {
             <sphereGeometry args={[1, 100, 100]} />
             <MeshDistortMaterial
                 ref={materialRef}
-                color="#00ffff"
+                color="#ff84e8"
                 distort={0.3}
                 speed={5}
                 roughness={0.2}
@@ -75,9 +75,7 @@ export default function AudioVisualizer({ audioUrl, message }) {
                 <Suspense fallback={null}>
                     <DistortedSphere analyser={analyser} />
                 </Suspense>
-                <OrbitControls />
             </Canvas>
-            <ViewMessage message={message} />
         </>
     );
 }

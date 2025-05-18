@@ -4,12 +4,15 @@ import { StartConversation } from '../../components/blobVisual/startConversation
 import { Mic, MicOff } from 'lucide-react';
 import TextInputBar from '../../components/blobVisual/textareaBar';
 import { getEvaluation } from '../../components/iaService/getIAresponse';
+import { ViewMessage } from '../../components/blobVisual/viewMessage';
+import { Link } from 'react-router-dom';
 
 /**
  * @desc: Assistance page with voice response using TTS and STT
  */
 const Assistance = () => {
     const [audioUrl, setAudioUrl] = useState(null);
+    const [isLoading, setLoading] = useState(null);
     const [message, setMessage] = useState(
         'Je suis vraiment là pour toi, prête à t’aider à chaque étape. N’hésite surtout pas, tu peux compter sur moi. Tu n’es pas seule.'
     );
@@ -38,7 +41,7 @@ const Assistance = () => {
             console.log('Transcription :', transcript);
 
             if (transcript) {
-                sendToTTS(transcript);
+                handleMessage(transcript);
             }
         };
 
@@ -83,8 +86,8 @@ const Assistance = () => {
     };
 
     const sendToTTS = async (text) => {
+        setLoading(true);
         try {
-            setMessage(text);
             const response = await fetch(
                 'https://tts-french-production.up.railway.app/generate_speech/',
                 {
@@ -104,6 +107,8 @@ const Assistance = () => {
 
             const localUrl = URL.createObjectURL(blob);
             setAudioUrl(localUrl);
+            setMessage(text);
+            setLoading(false);
         } catch (error) {
             console.error('Erreur TTS :', error);
         }
@@ -118,16 +123,34 @@ const Assistance = () => {
     };
 
     return (
-        <div className="relative min-h-screen pb-24">
-            <StartConversation
-                isOpen={isOpen}
-                onAccept={handleAccept}
-                onReject={stopSpeechRecognition}
-            />
-            {!isOpen && <TextInputBar onSubmit={handleMessage} />}
-            {audioUrl && (
-                <AudioVisualizer audioUrl={audioUrl} message={message} />
-            )}
+        <div className="pointBackground relative h-screen min-h-screen overflow-hidden bg-gray-200 pb-24">
+            <div className="gradientBack1">
+                {audioUrl && (
+                    <Link
+                        to="/"
+                        className="absolute top-5 right-10 z-50 rounded-3xl bg-gray-100 p-2 px-4 transition hover:scale-105"
+                    >
+                        Retour
+                    </Link>
+                )}
+                <StartConversation
+                    isOpen={isOpen}
+                    onAccept={handleAccept}
+                    onReject={stopSpeechRecognition}
+                />
+                {isLoading && <h1>Loading...</h1>}
+                {!isOpen && <TextInputBar onSubmit={handleMessage} />}
+                {!isOpen && <ViewMessage message={message} />}
+
+                {audioUrl && (
+                    <div className="fade-in">
+                        <AudioVisualizer
+                            audioUrl={audioUrl}
+                            message={'  ' + message}
+                        />
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

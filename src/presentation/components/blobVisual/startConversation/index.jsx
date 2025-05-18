@@ -9,7 +9,7 @@ export function StartConversation({ isOpen, onAccept, onReject }) {
             <div className="absolute inset-0 bg-black opacity-50" />
 
             <div
-                className="relative z-10 flex w-64 flex-col items-center gap-4 rounded-xl p-5 shadow-2xl"
+                className="relative z-10 flex w-64 flex-col items-center gap-4 rounded-3xl p-5 shadow-2xl"
                 style={{
                     background: `linear-gradient(to bottom, white 50%, #d0eaff 100%)`,
                     boxShadow: `
@@ -35,13 +35,13 @@ export function StartConversation({ isOpen, onAccept, onReject }) {
                 <div className="mt-2 flex w-full justify-between gap-3">
                     <button
                         onClick={onReject}
-                        className="rounded-md bg-gray-100 px-3 py-1 text-[10px] text-gray-700 transition hover:bg-gray-200"
+                        className="cursor-pointer rounded-lg bg-gray-100 px-3 py-1 text-[10px] text-gray-700 transition hover:bg-gray-200"
                     >
                         Refuser
                     </button>
                     <button
                         onClick={onAccept}
-                        className="rounded-md bg-blue-600 px-3 py-1 text-[10px] text-white shadow-md transition hover:bg-blue-700"
+                        className="cursor-pointer rounded-lg bg-blue-600 px-3 py-1 text-[10px] text-white shadow-md transition hover:bg-blue-700"
                     >
                         Accepter
                     </button>
