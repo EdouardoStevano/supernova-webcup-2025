@@ -38,7 +38,7 @@ const EcoIndex = () => {
                         <span
                             className={`fixed text-2xl font-bold ${isHovered ? 'hidden' : ''}`}
                         >
-                            e
+                            A
                         </span>
                         {isHovered && (
                             <motion.div

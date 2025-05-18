@@ -24,6 +24,10 @@ const LandingRoutes = lazy(() => import('./landing-route'));
 const BuilderRoutes = lazy(() => import('./builder-route'));
 const BlogRoutes = lazy(() => import('./blog-route'));
 
+const VideoIa = lazy(
+    () => import('../../presentation/components/enregistrement')
+);
+
 const SouvenirRoutes = lazy(() => import('./souvenir-route'));
 // ------------------------------------------------------------------------------------------------------
 
@@ -86,10 +90,7 @@ const RoutesConfig = () => {
                                 path="assitance/project-graveyard"
                                 element={<ProjectGraveYard />}
                             />
-                            <Route
-                                path="leaderboard"
-                                element={<LeaderboardTop3 />}
-                            />
+                            <Route path="video/ia" element={<VideoIa />} />
 
                             {/* Builder Pages */}
                             <Route

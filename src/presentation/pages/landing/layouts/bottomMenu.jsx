@@ -3,7 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import image1 from '../../../assets/illustrations/auth2.jpg';
+import image1 from '../../../assets/miniature/im1.jpg';
+import image2 from '../../../assets/miniature/im2.jpg';
+import image3 from '../../../assets/miniature/im8.jpg';
+import image4 from '../../../assets/miniature/im3.jpg';
+import image5 from '../../../assets/miniature/im4.jpg';
+import image6 from '../../../assets/miniature/im7.jpg';
 
 // Custom hook for tracking mouse position
 const useMousePosition = () => {
@@ -26,20 +31,20 @@ const useMousePosition = () => {
 
 const menuItems = [
     { id: 1, icon: image1, label: 'Espace création', link: '/builder' },
-    { id: 2, icon: image1, label: 'Communauté', link: '/blog' },
+    { id: 2, icon: image2, label: 'Communauté', link: '/blog' },
     {
         id: 3,
-        icon: image1,
+        icon: image3,
         label: 'Cimetière des projets',
         link: '/assitance/project-graveyard',
     },
     {
         id: 3,
-        icon: image1,
+        icon: image4,
         label: 'Souvenir',
         link: '/remember',
     },
-    { id: 4, icon: image1, label: 'Hall of fame', link: '/leaderboard' },
+    { id: 4, icon: image5, label: 'Hall of fame', link: '/leaderboard' },
 ];
 
 const BottomMenu = () => {
@@ -61,7 +66,8 @@ const BottomMenu = () => {
                     <span
                         className="h-10 w-10 rounded-xl bg-[#521f48] bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(${image1})`,
+                            backgroundImage: `url(${image3})`,
+                            backgroundSize: 'cover',
                         }}
                     />
                     {t('floatBtn.title')}

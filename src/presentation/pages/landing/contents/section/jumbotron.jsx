@@ -7,6 +7,7 @@ import Banner4 from '../../../../assets/illustrations/jumbo4.png';
 import Cloud from '../../../../assets/illustrations/ccS.png';
 import { FancyButton } from '../../../../components/common/FancyButton';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Jumbotron = () => {
     const containerRef = useRef(null);
@@ -96,15 +97,19 @@ const Jumbotron = () => {
                 <img
                     src={Cloud}
                     alt="cloud"
-                    className="absolute bottom-40 dark:hidden"
+                    className="absolute bottom-40 z-20 dark:hidden"
                 />
-                <FancyButton
-                    title="Discover More"
-                    textHover="Mety io eh"
-                    label={'Test'}
-                    className="absolute right-5 bottom-40 dark:hidden"
-                    onClick={console.log('Explore')}
-                />
+                <Link
+                    to="/builder"
+                    className="absolute right-50 bottom-140 z-50"
+                >
+                    <FancyButton
+                        title="partager et"
+                        textHover="Goooo..."
+                        label={'Decouvrir'}
+                        className="hidden md:flex dark:hidden"
+                    />
+                </Link>
                 <div className="floating-element">
                     <motion.img
                         src={Banner1}
@@ -140,7 +145,7 @@ const Jumbotron = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.6 }}
                     style={createDepthStyle(7)}
-                    className="relative top-[500px] left-6 z-10 w-[70%] rounded-xl bg-white/60 p-4 text-sm text-gray-600 backdrop-blur-lg md:top-5 md:w-[40%]"
+                    className="relative top-[500px] left-6 z-30 w-[70%] rounded-xl bg-white/60 p-4 text-sm text-gray-600 backdrop-blur-lg md:top-5 md:w-[40%]"
                 >
                     {t('banner.para1')}
                 </motion.p>
