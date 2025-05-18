@@ -6,113 +6,62 @@ import {
   Meh,
   Frown,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+// import { useEffect, useRef, useState } from "react";
 
 
-export function LeaderboardList({ data }) {
-  const [pinned, setPinned] = useState(false);
-  const titleRef = useRef(null);
+import { motion, AnimatePresence } from "framer-motion";
 
-  const emotionIcons = {
-    Heureux: <Smile size={20} className="text-yellow-500" />,
-    Calme: <Meh size={20} className="text-blue-500" />,
-    Concentré: <Frown size={20} className="text-purple-500" />,
-    // nouvelles émotions
-    Soulagé: <Smile size={20} className="text-green-500" />,
-    Soulagée: <Smile size={20} className="text-green-500" />,
-    Triste: <Frown size={20} className="text-gray-500" />,
-    Motivé: <Smile size={20} className="text-orange-400" />,
-    Motivée: <Smile size={20} className="text-orange-400" />,
-    Déterminé: <Smile size={20} className="text-pink-500" />,
-    Apaisée: <Meh size={20} className="text-teal-500" />,
-    Excité: <Smile size={20} className="text-red-400" />,
-    Nostalgique: <Meh size={20} className="text-indigo-400" />,
-    Frustré: <Frown size={20} className="text-red-600" />,
-    Libérée: <Smile size={20} className="text-fuchsia-500" />,
-    Serein: <Meh size={20} className="text-blue-400" />,
-    Optimiste: <Smile size={20} className="text-lime-500" />,
-    Indécis: <Meh size={20} className="text-yellow-400" />,
-    Heureuse: <Smile size={20} className="text-yellow-500" />,
-    Épuisé: <Frown size={20} className="text-gray-600" />,
-    Ambitieux: <Smile size={20} className="text-sky-500" />,
-    Fière: <Smile size={20} className="text-emerald-500" />,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setPinned(!entry.isIntersecting);
-      },
-      { threshold: 0 }
-    );
-
-    if (titleRef.current) observer.observe(titleRef.current);
-
-    return () => {
-      if (titleRef.current) observer.unobserve(titleRef.current);
-    };
-  }, []);
-
+export function LeaderboardList({ data, prevPositions }) {
   return (
-    <div className="relative mt-10 w-full max-w-3xl px-4">
-      {pinned && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow px-40 py-3">
-          <h2 className="text-xl font-semibold text-gray-800">
-            Top 15 lettre d'adieu
-          </h2>
-        </div>
-      )}
+    <div className="mt-10 w-full max-w-xl">
+      <AnimatePresence>
+        {data.map((player, index) => {
+          const prevIndex = prevPositions[player.id];
+          const positionChange = prevIndex !== undefined ? prevIndex - index : 0;
 
-      <div ref={titleRef}>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Top 15 lettre d'adieu
-        </h2>
-      </div>
-
-      <ul className="divide-y divide-gray-200 rounded-xl shadow-lg bg-white overflow-hidden">
-        {data.map((player, index) => (
-          <li
-            key={index}
-            className="flex items-center justify-between p-4 hover:bg-blue-50 transition"
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className={`text-lg font-bold w-6 text-center ${
-                  index === 0
-                    ? "text-yellow-500"
-                    : index === 1
-                    ? "text-gray-400"
-                    : index === 2
-                    ? "text-orange-500"
-                    : "text-gray-600"
-                }`}
-              >
-                {index + 4}
+          return (
+            <motion.div
+              key={player.id}
+              layout
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="border border-dotted border-gray-500 bg-white rounded-lg px-4 py-2 mb-2 flex items-center justify-between"
+            >
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-bold text-gray-700">{index + 4}.</span>
+                <div>
+                  <div className="font-semibold text-gray-800">{player.name}</div>
+                  <div className="text-sm text-gray-500 italic">{player.description}</div>
+                </div>
               </div>
-              <User className="text-gray-400" size={20} />
-              <span className="text-sm font-medium text-gray-700">
-                {player.name}
-              </span>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1 text-sm text-gray-600">
-                {emotionIcons[player.emotion] || <Meh size={20} className="text-gray-400" />}
-                <span>{player.emotion}</span>
+              <div className="flex items-center gap-5">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1 text-green-600">
+                    <ArrowUp size={14} />
+                    <span className="text-[11px]">{player.positive}</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-red-500">
+                    <ArrowDown size={14} />
+                    <span className="text-[11px]">{player.negative}</span>
+                </div>
+                </div>
+                {positionChange !== 0 && (
+                  <div
+                    className={`text-[20px] mt-1 font-medium ${
+                      positionChange > 0 ? "text-green-500" : "text-red-500"
+                    }`}
+                  >
+                    {positionChange > 0 ? `+${positionChange}` : positionChange}
+                  </div>
+                )}
               </div>
-
-              <div className="flex items-center text-green-600 text-sm gap-1">
-                <ArrowUp size={16} />
-                <span>{player.positive}</span>
-              </div>
-              <div className="flex items-center text-red-500 text-sm gap-1">
-                <ArrowDown size={16} />
-                <span>{player.negative}</span>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </motion.div>
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 }
+

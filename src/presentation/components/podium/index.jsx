@@ -9,7 +9,7 @@ import {
 import { useRef, useEffect, useState } from "react";
 import { LeaderboardList } from "./components/list";
 import "./style.css";
-import data from "../../../data/datasource/leaderBoard.json";
+import dataSource from "../../../data/datasource/leaderBoard.json";
 
 const gradients = [
   "linear-gradient(to bottom, #ffffff 50%, #ffe57f 100%)",
@@ -104,7 +104,9 @@ function LeaderboardCard({ data, index }) {
         {emotionIcons[data.emotion]}
         <span className="text-sm text-gray-700 mt-1">{data.emotion}</span>
       </div>
-
+      <p className="text-center text-[16px] text-gray-900 font-bold px-2 z-10">
+        {data.name}
+      </p>  
       <p className="text-center text-sm text-gray-600 italic px-2 z-10">
         {data.description}
       </p>
@@ -125,15 +127,52 @@ function LeaderboardCard({ data, index }) {
 
 
 export function LeaderboardTop3() {
+  const [players, setPlayers] = useState([]);
   const [top3, setTop3] = useState([]);
   const [others, setOthers] = useState([]);
+  const [prevPositions, setPrevPositions] = useState({}); // pour détecter le déplacement
 
   useEffect(() => {
-    const sorted = [...data]
-    setTop3(sorted.slice(0, 3));
-    setOthers(sorted.slice(3));
-    console.log(others)
-  }, [data]);
+    const initData = dataSource.map((item, index) => ({
+      ...item,
+      id: item.name || index, // identifiant unique
+    }));
+
+    setPlayers(initData);
+    setPrevPositions(
+      initData.reduce((acc, curr, i) => {
+        acc[curr.id] = i;
+        return acc;
+      }, {})
+    );
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const updatedPlayers = [...players].map((p) => ({
+        ...p,
+        // Simuler les changements :
+        positive: p.positive + Math.floor(Math.random() * 3),
+        negative: p.negative + Math.floor(Math.random() * 2),
+      }));
+
+      const sorted = [...updatedPlayers].sort(
+        (a, b) => b.positive - b.negative - (a.positive - a.negative)
+      );
+
+      const newPositions = {};
+      sorted.forEach((p, index) => {
+        newPositions[p.id] = index;
+      });
+
+      setPrevPositions(newPositions);
+      setPlayers(sorted);
+      setTop3(sorted.slice(0, 3));
+      setOthers(sorted.slice(3));
+    }, 2000); // toutes les 4 secondes
+
+    return () => clearInterval(interval);
+  }, [players]);
 
   if (top3.length === 0) return <p>Chargement...</p>;
 
@@ -142,10 +181,10 @@ export function LeaderboardTop3() {
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Leaderboard</h1>
       <div className="flex justify-center gap-6">
         {top3.map((player, i) => (
-          <LeaderboardCard key={i} data={player} index={i} />
+          <LeaderboardCard key={player.id} data={player} index={i} />
         ))}
       </div>
-      <LeaderboardList data={others} />
+      <LeaderboardList data={others} prevPositions={prevPositions} />
     </div>
   );
 }
