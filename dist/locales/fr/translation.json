@@ -1,21 +1,143 @@
 {
-    "navbar": {
-        "home": "Accueil",
+    "nav": {
+        "subtext": "Créez des pages de fin stylisées",
+        "signIn:": "Se connecter",
+        "signIntext:": "Je claque la porte",
+        "theme": "Mode sombre",
         "carte": "Carte",
-        "simulation": "simulation",
-        "school": "Ecole",
-        "maladie": "madalie",
-        "actu": "actualités",
-        "signIn": "Se connecter",
-        "dec": "Valorisation des déchets",
-        "mode": "Mode sombre"
+        "home": "Accueil",
+        "about": "A propos",
+        "explore": "explorez",
+        "testi": "testimoniales",
+        "contact": "Contact"
+    },
+
+    "floatBtn": {
+        "title": "Tourne la page, masi ecris là d'abord",
+        "subtext": "Créez des pages de fin stylisées",
+        "ecotext": "Our commitment to environmental ustainability and eco-friendly practices helps create a better future for our planet."
+    },
+
+    "marquee": {
+        "text": "💫 Dernier Acte — Transformez vos départs en déclarations créatives. Créez des pages de fin stylisées pour marquer vos adieux, qu'ils soient professionnels, personnels ou numériques. 💫"
+    },
+
+    "about": {
+        "parasmall": "Chaque page ici est un dernier acte, un adieu stylisé, une confession ou une révolte.",
+        "title": "Boom. Bye. Bref.",
+        "para": "Ici, c’est le hall of fame des départs. Pages piquantes, touchantes, parfois gênantes… mais toujours uthentiques. Clics garantis, drames assurés. Viens voir comment on claque la porte en beauté. Ces pages racontent des départs. Certains sereins, d'autres abrupts, mais tous marqués par une envie de laisser un ot, une trace. Parce que derrière chaque fin, il y a une histoire.",
+        "btn": "Voir les hall of fame"
     },
 
     "banner": {
-        "Title": "L'innovation",
-        "Title1": "au service",
-        "Title2": "de votre santé",
-        "para1": "À l’ère où santé et technologie convergent, nous croyons en une innovation qui place l’humain au cœur du progrès. Nos solutions intelligentes intègrent intelligemment les dernières avancées pour offrir des outils précis, accessibles",
-        "btn": "Explorez-notre monre"
+        "welcome": "Bienvenue sur",
+        "para1": "Quand tout se termine, il reste une chose à dire. À travers TheEnd.page, les utilisateurs créent des pages de fin stylisées, où s’expriment émotions, souvenirs et dernières piques bien placées. Parce que parfois, claquer la porte, c’est aussi marquer les esprits.",
+        "btn": "Discover More"
+    },
+
+    "solutionSection": {
+        "title": "Ta fin, ton style, notre solution",
+        "description": "TheEnd.page, c’est bien plus qu’un simple générateur de pages. C’est une plateforme interactive qui donne à chaque utilisateur ou utilisatrice le pouvoir de transformer un moment de rupture en un acte de création libre et personnalisé.",
+        "cards": {
+            "models": {
+                "title": "Des modèles de pages inspirants",
+                "description": "Une bibliothèque de styles prédéfinis pour ceux qui veulent partir avec style, sans partir de zéro.",
+                "link": "En savoir plus"
+            },
+            "link": {
+                "title": "Un lien partageable",
+                "description": "Chaque page de fin est accessible via une URL unique, facile à envoyer à ses collègues, ex, partenaires de projet ou amis. Une fin, ça se partage !",
+                "link": "En savoir plus"
+            },
+            "ai": {
+                "title": "Assistance IA",
+                "description": "L’IA t’aide à choisir parmi des templates prédéfinis celui qui correspond le mieux à ton intention : \"Fin douce\", \"Explosion de rage\", \"Adieu stylé\", etc.",
+                "link": "En savoir plus"
+            }
+        },
+        "footer": {
+            "quote": "Parce qu’il y a toujours quelque chose à dire… avant de partir."
+        }
+    },
+
+    "hori": {
+        "title": "Les mots de la fin",
+        "para": "Derrière chaque fin, il y a une histoire. Ici sont rassemblées celles que l’on a osé écrire et partager. Pages sincères, rageuses, drôles ou touchantes — chaque adieu compte."
+    },
+    "exitPagesSection": {
+        "title": "Claque la porte, mais laisse une trace",
+        "description": "Ils sont partis, mais leur page est restée. Découvre ces chefs-d'œuvre de drama, de sarcasme, de poésie ou de grand n’importe quoi. Rires, larmes, malaises garantis. Attention, certaines sorties sont plus bruyantes que d’autres...",
+        "cards": {
+            "futureChronicles": {
+                "title": "Les Chroniques du Futur",
+                "description": "Une aventure interstellaire dans un monde où le temps se plie aux émotions humaines.",
+                "studio": "Mada Films",
+                "date": "17 Mai 2025",
+                "button": "Regarder"
+            },
+            "lastSilence": {
+                "title": "Le Dernier Silence",
+                "description": "Un thriller psychologique autour du pouvoir du secret dans un monde trop bavard.",
+                "studio": "Silencio Studio",
+                "date": "02 Juin 2025",
+                "button": "Regarder"
+            },
+            "digitalRebirth": {
+                "title": "Renaissance Digitale",
+                "description": "Quand l’intelligence artificielle découvre la poésie humaine.",
+                "studio": "NeoVerse Production",
+                "date": "20 Juillet 2025",
+                "button": "Regarder"
+            }
+        }
+    },
+    "partener": "Partenaire",
+    "testimo": {
+        "tite": "Ils sont partis, et ils ont brillé",
+        "para": "TheEnd.page, ces utilisateurs ont transformé leur fin en moment mémorable — parfois drôle, parfois touchant, parfois explosif. Voici leurs histoires, leurs pages, et leurs mots. Parce qu’une bonne sortie, ça se raconte."
+    },
+
+    "testimo-items": [
+        {
+            "name": "Camille R. — ex-collaboratrice RH",
+            "date": "19 Mars 2025",
+            "text": "Je voulais éviter le pot de départ gênant… Ma page a fait le tour de la boîte en 15 minutes. On en rigole encore dans le groupe WhatsApp !"
+        },
+        {
+            "name": "Lucas T. — freelance désabusé",
+            "date": "15 Mars 2025",
+            "text": "TheEnd.page m’a permis de dire au revoir à un client toxique avec ironie… et une playlist. C’était libérateur. Et classe."
+        },
+        {
+            "name": "Lucas T. — freelance désabusé",
+            "date": "10 Mars 2025",
+            "text": "TheEnd.page m’a permis de dire au revoir à un client toxique avec ironie… et une playlist. C’était libérateur. Et classe."
+        },
+        {
+            "name": "Sophie D. — ancienne membre d’un serveur Discord",
+            "image": "https://randomuser.me/api/portraits/men/4.jpg",
+            "text": "J’ai quitté un serveur où ça devenait n’importe quoi. Ma page de départ ? 100 % passive-agressive, 100 % moi."
+        },
+        {
+            "name": "Jonathan B. — dev fullstack fatigué",
+            "date": "10 Mars 2025",
+            "text": "C’est l’IA qui m’a soufflé les meilleures punchlines pour ma démission. Résultat : une page partagée 62 fois. Je suis une légende dans mon open-space."
+        },
+        {
+            "name": "Mélanie P. — ex en paix",
+            "date": "15 Mars 2025",
+            "text": "J’ai utilisé TheEnd.page pour tourner la page avec mon ex. J’ai pu dire tout ce que j’avais sur le cœur… avec poésie et humour. Même lui a aimé."
+        },
+        {
+            "name": "Maria Lee",
+            "date": "10 Mars 2025",
+            "text": "J’ai utilisé TheEnd.page pour tourner la page avec mon ex. J’ai pu dire tout ce que j’avais sur le cœur… avec poésie et humour. Même lui a aimé."
+        }
+    ],
+    "contact": {
+        "title": "Lancer la bouteille à la mer",
+        "para": "Et si tu as juste envie de balancer une message ou une citation de fin… vas-y. On aime les surprises.",
+        "Name": "Nom",
+        "send": "Envoyer"
     }
 }
