@@ -17,12 +17,21 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 20
+                  cache: 'yarn' # optionnel mais utile
+
+            - name: Install Yarn
+              run: npm install -g yarn
 
             - name: Install dependencies
-              run: npm install --legacy-peer-deps
+              run: yarn install --ignore-engines
+
+            - name: Install sass-embedded
+              run: yarn add -D sass-embedded
+            - name: Install missing dependencies
+              run: yarn add @dnd-kit/core
 
             - name: Build project
-              run: npm run build
+              run: yarn build
 
             - name: Deploy with FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.3.4
