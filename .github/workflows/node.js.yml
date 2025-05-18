@@ -27,6 +27,8 @@ jobs:
 
             - name: Install sass-embedded
               run: yarn add -D sass-embedded
+            - name: Install missing dependencies
+              run: yarn add @dnd-kit/core
 
             - name: Build project
               run: yarn build
