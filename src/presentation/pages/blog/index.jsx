@@ -8,7 +8,7 @@ const BlogPages = () => {
             <div>
                 <BlogNavBar />
             </div>
-            <div className="w-[calc(100%-688px)]">
+            <div className="fadeIn w-[calc(100%-688px)]">
                 <Outlet />
             </div>
             <div>

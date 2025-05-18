@@ -303,37 +303,6 @@ const BlogNavBar = () => {
                         </div>
                     ))}
                 </div>
-                {/* User profile at the bottom of nav */}
-                <div style={{ marginBottom: 8 }}>
-                    <img
-                        src={user.avatar}
-                        alt="avatar"
-                        style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: '50%',
-                            border: '2px solid #ce47bc',
-                            marginBottom: 4,
-                        }}
-                    />
-                    <button
-                        style={{
-                            width: 40,
-                            height: 24,
-                            background: '#ce47bc',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: 6,
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                            cursor: 'pointer',
-                            marginTop: 2,
-                        }}
-                        title="Profil"
-                    >
-                        Profil
-                    </button>
-                </div>
             </nav>
             <aside
                 style={{
@@ -406,44 +375,6 @@ const BlogNavBar = () => {
                             </div>
                         ))}
                     </ul>
-                </div>
-
-                <div
-                    style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 16,
-                        background: '#23272a',
-                        borderRadius: 12,
-                        padding: '12px 16px',
-                        marginTop: 24,
-                    }}
-                >
-                    <img
-                        src={user.avatar}
-                        alt="avatar"
-                        style={{
-                            width: 48,
-                            height: 48,
-                            borderRadius: '50%',
-                            border: '2px solid #ce47bc',
-                        }}
-                    />
-                    <div style={{ flex: 1 }}>
-                        <div
-                            style={{
-                                color: '#fff',
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                            }}
-                        >
-                            {user.name}
-                        </div>
-                        <div style={{ color: '#b9bbbe', fontSize: 13 }}>
-                            {user.email}
-                        </div>
-                    </div>
                 </div>
             </aside>
         </div>
