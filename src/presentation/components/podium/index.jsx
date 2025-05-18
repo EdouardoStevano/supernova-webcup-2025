@@ -13,7 +13,7 @@ import data from "../../../data/datasource/leaderBoard.json";
 
 const gradients = [
   "linear-gradient(to bottom, #ffffff 50%, #ffe57f 100%)",
-  "linear-gradient(to bottom, #d0e4fa 50%, #64b5f6 100%)",
+  "linear-gradient(to bottom, #e0e0e0 50%, #e8dada 100%)",
   "linear-gradient(to bottom, #ffffff 50%, #ce93d8 100%)",
 ];
 
@@ -55,10 +55,35 @@ function LeaderboardCard({ data, index }) {
         willChange: "transform",
       }}
     >
-      {/* animations inchangées */}
-      {index === 0 && <div className="absolute inset-0 z-0 flex items-start justify-center pointer-events-none"><div className="sun-rays animate-spin-slow w-24 h-24 bg-yellow-300 rounded-full opacity-30 blur-2xl"></div></div>}
-      {index === 1 && <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden"><div className="cloud cloud1"><img src="/images/cloud.webp" alt="" /></div><div className="cloud cloud2"><img src="/images/cloud.webp" alt="" /></div></div>}
-      {index === 2 && <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">{[...Array(10)].map((_, i) => <div key={i} className="raindrop" style={{ left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 2}s` }} />)}</div>}
+      {index === 0 && (
+        <>
+          <div className="absolute inset-0 z-0 flex items-start justify-center pointer-events-none">
+            <div className="sun-rays animate-spin-slow w-24 h-24 bg-yellow-300 rounded-full opacity-30 blur-2xl" />
+          </div>
+          {/* GIFs */}
+          <img src="/images/sad.GIF" className="absolute top-[-40px] left-[58%] transform -translate-x-1/2" width={60} />
+          <img src="/images/sad.GIF" className="absolute bottom-0 left-0" width={70} />
+          <img src="/images/sad.GIF" className="absolute bottom-0 right-0" width={70} />
+        </>
+      )}
+
+      {index === 1 && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          
+          <img src="/images/calm.GIF" className="absolute top-[-40px] left-[44%] transform -translate-x-1/2" width={60} />
+          <img src="/images/calm.GIF" className="absolute bottom-0 left-0" width={70} />
+          <img src="/images/calm.GIF" className="absolute bottom-0 right-0" width={70} />
+        </div>
+      )}
+
+      {index === 2 && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img src="/images/happy.gif" className="absolute top-[-40px] left-[58%] transform -translate-x-1/2" width={60} />
+          <img src="/images/happy.gif" className="absolute bottom-0 left-0" width={70} />
+          <img src="/images/happy.gif" className="absolute bottom-0 right-0" width={70} />
+        </div>
+      )}
+
 
       <div className="absolute -top-4 bg-white rounded-full p-1 shadow-sm z-10">
         <Crown
