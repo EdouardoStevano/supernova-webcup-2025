@@ -2,7 +2,7 @@ const FloatAssistance = () => {
     return (
         <div className="fixed right-8 bottom-8 z-50 hidden md:flex">
             <button
-                className="rounded-full bg-green-500 p-4 text-white shadow-lg transition-all duration-300 ease-in-out hover:bg-green-600"
+                className="cursor-auto rounded-full bg-green-500 p-4 text-white shadow-lg transition-all duration-300 ease-in-out hover:bg-green-600"
                 aria-label="Get assistance"
             >
                 <svg
