@@ -49,7 +49,6 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
                     </a>
                 );
             })}
-            <a href="#contact">Test</a>
         </div>
     );
 }
