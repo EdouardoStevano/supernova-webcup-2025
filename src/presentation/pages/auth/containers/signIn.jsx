@@ -87,10 +87,10 @@ const SignIn = () => {
 
     return (
         <div
-            className="sign-in pointBackground flex h-screen flex-row bg-transparent dark:bg-gray-900"
+            className="sign-in pointBackground flex h-screen cursor-auto flex-row bg-transparent dark:bg-gray-900"
             onKeyDown={handleKeyDown}
         >
-            <div className="sign-in-right flex h-screen w-full flex-col justify-between px-9 py-4">
+            <div className="sign-in-right gradientBack1 flex h-screen w-full flex-col justify-between px-9 py-4">
                 {/* Header Section */}
                 <div className="sign-right-top fadeIn flex w-full justify-between">
                     <div className="sign-top-left font-poppins flex items-center">
@@ -103,7 +103,7 @@ const SignIn = () => {
                         <p className="ml-2 flex flex-col text-[18px]">
                             <span className="first-letter font-Poppins text-center font-extrabold text-slate-800">
                                 {/* {process.env.REACT_APP_PROJECT_NAME} */}
-                                TEST
+                                TheEndPage
                             </span>
                             <span className="text-[10px]">by Supernova</span>
                         </p>
@@ -131,7 +131,7 @@ const SignIn = () => {
                     {/* Left Decorative Section */}
                     <div className="hidden w-[30%] flex-col items-center justify-around lg:flex">
                         <div className="fadeIn flex gap-6">
-                            <div className="sign-image2 floating-element-vertical bg-secondary-600 absolute top-[14vh] left-[10vw] h-[40%] w-[20%] -rotate-12 rounded-2xl rounded-b-[100%] shadow-xl shadow-slate-300 outline outline-offset-2 outline-yellow-300 transition hover:-translate-y-7 dark:shadow-slate-800"></div>
+                            <div className="authImage1 floating-element-vertical bg-secondary-600 absolute top-[14vh] left-[10vw] h-[40%] w-[20%] -rotate-12 rounded-2xl rounded-b-[100%] shadow-xl shadow-slate-300 outline outline-offset-2 outline-yellow-300 transition hover:-translate-y-7 dark:shadow-slate-800"></div>
                             <div className="sign-image3 border-opacity-15 bg-opacity-25 shadow-large absolute bottom-[20vh] left-[20vw] mt-[130px] h-[180px] w-[180px] rounded-full border-1 border-gray-300 bg-slate-300/20 shadow-slate-300 backdrop-blur-sm transition hover:scale-110 dark:shadow-slate-700">
                                 <svg
                                     className="turnInfinite absolute h-[180px] w-[180px]"
@@ -154,8 +154,9 @@ const SignIn = () => {
                                             startOffset="50%"
                                             textAnchor="middle"
                                         >
-                                            Your Circular Text Here - Your
-                                            Circular Text - Your CircularText
+                                            Une sortie propre, une page sale (ou
+                                            l’inverse). L’art de claquer la
+                                            porte avec style
                                         </textPath>
                                     </text>
                                 </svg>
@@ -173,10 +174,10 @@ const SignIn = () => {
                     <div className="sign-form swipeFadeUp mx-auto w-[90%] rounded-2xl p-6 lg:w-[35%]">
                         <div className="sign-in-title font-poppins mx-auto mb-4 text-center">
                             <h2 className="font-poppins text-xl font-semibold text-slate-700 dark:text-slate-200">
-                                {t('navbar.home')}
+                                {t('banner.welcome')}
                             </h2>
                             <h1 className="font-syne mt-1 w-full bg-gradient-to-r from-red-600 to-blue-500 bg-clip-text text-6xl font-bold text-slate-800 text-transparent md:text-[76px] dark:text-slate-200">
-                                'Sirius.io'
+                                TheEndAct
                             </h1>
                             <p className="font-poppins mt-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
                                 Un service plus rapide, une attente mieux
@@ -284,7 +285,7 @@ const SignIn = () => {
                     {/* Right Decorative Section */}
                     <div className="hidden w-[30%] flex-col items-center justify-around lg:flex">
                         <div className="fadeIn flex gap-6">
-                            <div className="sign-image bg-success-600 floating-element-vertical-right absolute right-[10vw] bottom-[17vh] mt-[130px] h-[40%] w-[18%] rotate-12 rounded-2xl rounded-ss-[100%] shadow-xl shadow-slate-300 outline outline-offset-2 outline-teal-400 transition hover:-translate-y-4 dark:shadow-slate-800"></div>
+                            <div className="authImage2 bg-success-600 floating-element-vertical-right absolute right-[10vw] bottom-[17vh] mt-[130px] h-[40%] w-[18%] rotate-12 rounded-2xl rounded-ss-[100%] shadow-xl shadow-slate-300 outline outline-offset-2 outline-teal-400 transition hover:-translate-y-4 dark:shadow-slate-800"></div>
                             <img
                                 src={Star2}
                                 className="relative -top-20 left-[3vw] h-16 w-16"

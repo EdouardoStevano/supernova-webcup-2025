@@ -35,3 +35,32 @@
     --color-neutral-800: color-mix(in oklch, #0b2a97 40%, black);
     --color-neutral-900: color-mix(in oklch, #0b2a97 20%, black);
 }
+
+.bg-gradient {
+    background: radial-gradient(#ce47bc, rgb(29, 29, 29) 80%);
+}
+
+.dramatic-bg {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #ffffff;
+}
+
+.ironic-bg {
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    color: #2c2c2c;
+}
+
+.cringe-bg {
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    color: #ffffff;
+}
+
+.classy-bg {
+    background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+    color: #f1f1f1;
+}
+
+.absurd-bg {
+    background: linear-gradient(135deg, #fc466b, #3f5efb, #00c9ff);
+    color: #ffffff;
+}

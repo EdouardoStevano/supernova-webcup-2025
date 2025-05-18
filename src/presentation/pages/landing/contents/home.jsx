@@ -1,90 +1,99 @@
-import { useEffect, useRef } from 'react';
-import LocomotiveScroll from 'locomotive-scroll';
-import { useToast } from '../../../components/common/superToast';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
+import Jumbotron from './section/jumbotron';
+import Marquee from '../../../components/landing/marquee';
+import Working from './section/working';
+import Presentation from '../../../components/landing/presentation/presentation';
+import StickyFooter from '../../../components/landing/stickyfooter/stickyFooter';
+import HorizontalPin from '../../../components/landing/textPin';
+import ListPage from './section/listPage';
+import Contact from './section/contact';
+import Testimonials from './section/testimonials';
+import MarqueePartener from './section/MarqueePartener';
+import AnimatedCursor from '../../../components/common/cursor';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
- *
- * @desc: Landing pages
+ * @desc: Landing page avec scroll fluide et toasts
  */
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Landing = () => {
-    const scrollRef = useRef(null);
-
-    useEffect(() => {
-        // Initialize Locomotive Scroll
-        const scroll = new LocomotiveScroll({
-            el: document.querySelector('#main-scroll'),
-            smooth: true,
-            multiplier: 1,
-            lerp: 0.03,
-            smartphone: {
-                smooth: true,
-            },
-            tablet: {
-                smooth: true,
-            },
-        });
-
-        // Clean up Locomotive Scroll instance
-        return () => {
-            if (scroll) scroll.destroy();
-        };
-    }, []);
-
-    const { addToast } = useToast();
-
-    // Toast d'information (par défaut)
-    const montrerInfo = () => {
-        addToast('Voici une information importante');
-    };
-
-    // Toast de succès
-    const montrerSucces = () => {
-        addToast('Opération réussie !', 'success');
-    };
-
-    // Toast d'erreur
-    const montrerErreur = () => {
-        addToast("Une erreur s'est produite", 'error');
-    };
-
-    // Toast d'avertissement
-    const montrerAvertissement = () => {
-        addToast('Attention !', 'warning');
-    };
-
     return (
-        <div
-            id="main-scroll"
-            ref={scrollRef}
-            data-scroll-container
-            className="z-10 overflow-hidden"
-        >
-            <div data-scroll-speed={0.1}>
-                <div
-                    data-scroll
-                    data-scroll-speed={0.3}
-                    className="flex h-screen bg-red-400 text-white"
-                >
-                    Section 1
-                    <div className="mt-2 p-25">
-                        <button onClick={montrerInfo}>Info</button>
-                        <button onClick={montrerSucces}>Succès</button>
-                        <button onClick={montrerErreur}>Erreur</button>
-                        <button onClick={montrerAvertissement}>
-                            Avertissement
-                        </button>
-                    </div>
-                </div>
-                <div
-                    data-scroll
-                    data-scroll-speed={1}
-                    className="flex h-screen bg-green-600 text-white"
-                >
-                    Section 2
-                </div>
-            </div>
+        <div className="overflow-hidden0 z-1 overflow-hidden text-gray-800">
+            <AnimatedCursor />
+
+            <section className="flex h-[110vh] flex-col items-center justify-center">
+                <Jumbotron />
+                <Marquee />
+            </section>
+
+            <section className="flex h-screen items-center justify-center text-white">
+                <Presentation />
+            </section>
+
+            <Working />
+
+            <section className="bg-card-background relative -top-10 hidden md:block">
+                <HorizontalPin />
+            </section>
+
+            <ListPage />
+
+            <MarqueePartener />
+
+            <Testimonials />
+
+            <Contact />
+
+            <StickyFooter
+                heightValue="100dvh"
+                className="text-neutral-900 dark:text-neutral-100"
+            >
+                <FooterContent />
+            </StickyFooter>
         </div>
     );
 };
 
 export default Landing;
+
+export function FooterContent() {
+    return (
+        <div className="bg-line-background flex h-full w-full flex-col justify-between bg-slate-200 px-[90px] py-8 dark:bg-gray-500">
+            <div className="mt-20 grid shrink-0 grid-cols-1 gap-20 sm:grid-cols-4">
+                <div className="flex flex-col gap-2">
+                    <h3 className="mb-2 text-neutral-500 uppercase">
+                        À propos
+                    </h3>
+                    <a href="#home">Accueil</a>
+                    <a href="#explore">Explorez</a>
+                    <a href="#testy">Testimoniales</a>
+                    <a href="#contact">Contactez-nous</a>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <h3 className="mb-2 text-neutral-500 uppercase">Outils</h3>
+                    <p>Expace communautaire</p>
+                    <p>Assisatnce IA</p>
+                    <p>Cimetière des projets</p>
+                    <p>Espace de creation</p>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <h3 className="mb-2 text-neutral-500">
+                        Pour t’inspirer ou t’exprimer, les pages publiques te
+                        permettent de faire partie de l’histoire collective des
+                        plus belles fins.
+                    </h3>
+                </div>
+            </div>
+
+            <div className="font-syne flex flex-col items-end gap-4 sm:flex-row">
+                <h1 className="mt-10 text-[14vw] leading-[0.8]">TheEnd.Page</h1>
+                <p>©copyright - 2025</p>
+            </div>
+        </div>
+    );
+}

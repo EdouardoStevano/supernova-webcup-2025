@@ -1,1 +1,24 @@
-import{j as e,O as r}from"./index-i9ws2I_8.js";const s=()=>e.jsx("div",{className:"m-4 h-[97vh] w-[500px] rounded-3xl bg-white/80 p-8 shadow backdrop-blur-md",children:"SidebarBuilder"}),d=()=>e.jsx("div",{className:"pointBackground h-screen max-h-[100vh] overflow-hidden bg-gray-200",children:e.jsxs("div",{className:"content flex h-full w-full items-center justify-center overflow-hidden overflow-y-auto",children:[e.jsx(s,{}),e.jsx("div",{className:"w-full",children:e.jsx(r,{})})]})});export{d as default};
+import { j as e, O as r } from './index-i9ws2I_8.js';
+const s = () =>
+        e.jsx('div', {
+            className:
+                'm-4 h-[97vh] w-[500px] rounded-3xl bg-white/80 p-8 shadow backdrop-blur-md',
+            children: 'SidebarBuilder',
+        }),
+    d = () =>
+        e.jsx('div', {
+            className:
+                'pointBackground h-screen max-h-[100vh] overflow-hidden bg-gray-200',
+            children: e.jsxs('div', {
+                className:
+                    'content flex h-full w-full items-center justify-center overflow-hidden overflow-y-auto',
+                children: [
+                    e.jsx(s, {}),
+                    e.jsx('div', {
+                        className: 'w-full',
+                        children: e.jsx(r, {}),
+                    }),
+                ],
+            }),
+        });
+export { d as default };

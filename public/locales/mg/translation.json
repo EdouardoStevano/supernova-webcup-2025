@@ -1,21 +1,111 @@
 {
     "navbar": {
+        "subtext": "Mamolavola pejy fiafaran-kanto",
+        "signIn:": "Miditra",
+        "signIntext:": "Miala aho",
+        "theme": "Mode maizina",
+        "carte": "Karta",
         "home": "Fandraisana",
-        "carte": "Sarintany",
-        "simulation": "Fampisehoana",
-        "school": "Sekoly",
-        "maladie": "Aretina",
-        "actu": "Vaovao",
-        "signIn": "Hiditra",
-        "dec": "Fanomzana lanja ny fako",
-        "mode": "Endrika maizina"
+        "about": "Momba anay",
+        "explore": "Hijery",
+        "testi": "Vavolombelona",
+        "contact": "Hifandray"
     },
-
+    "floatBtn": {
+        "title": "Afindrao ny pejy, fa soraty aloha",
+        "subtext": "Mamolavola pejy fiafaran-kanto",
+        "ecotext": "Ny fanoloran-tenanay amin'ny tontolo iainana sy ny fanao maitso dia manampy amin'ny fananganana ho avy tsara kokoa ho an'ny planeta."
+    },
+    "marquee": {
+        "text": "💫 Acte Farany — Avadiho ho lahateny mamorona ny fiafaran'ny tantaranao. Mamoròna pejy famaranana mahafinaritra ho an'ny fialana amin'ny asa, fitiavana, na tambajotra. 💫"
+    },
+    "about": {
+        "parasmall": "Ny pejy tsirairay eto dia fiafarana iray: fiarahabana, fibabohana, na fanoherana amin'ny kanto.",
+        "title": "Boom. Veloma. Vita.",
+        "para": "Ity no tranombakoka ho an'ny fialàna rehetra. Pejy mangidy, mampihetsi-po, na manadala… fa tena izy foana. Hahazoana fizarana, fahatsiarovana ary tsikitsiky. Avia jereo ny fomba handaoana amin'ny maha-mpanao kanto. Ny pejy tsirairay eto dia mitantara ny fiafarany manokana.",
+        "btn": "Hijery ny tranombakoka"
+    },
     "banner": {
-        "Title": "Ny famoronana vaovao",
-        "Title1": "ho an'ny",
-        "Title2": "fahasalamanao",
-        "para1": "Amin'izao vanim-potoana izao izay miara-dalana ny fahasalamana sy ny teknolojia, dia mino ny famoronana vaovao izay mametraka ny olombelona ho ivon'ny fandrosoana izahay. Ny vahaolana maranitra atolotray dia mampiditra amim-pahendrena ny fivoarana farany mba hanomezana fitaovana mazava sy azo idirana",
-        "btn": "Hikaroka ny tontolonay"
+        "welcome": "Tongasoa eto amin'ny",
+        "para1": "Rehefa mamarana ianao, misy zavatra tianao tenenina. Amin'ny alalan'ny TheEnd.page, afaka maneho ny fihetseham-pony sy ny tantarany amin'ny fomba manokana ny tsirairay. Indraindray, ny fialàna dia zavatra manamarika ihany koa.",
+        "btn": "Hijery misimisy kokoa"
+    },
+    "solutionSection": {
+        "title": "Ny fiafaranareo, ny fomba fanorenanao, ny vahaolanay",
+        "description": "TheEnd.page dia sehatra mamela ny olona hanova ny fialany ho zavatra kanto sy manokana.",
+        "cards": {
+            "models": {
+                "title": "Modely pejy manentana",
+                "description": "Tranomboky misy endrika efa voaomana ho an'izay te handao amin’ny fomba tsara tarehy, tsy manomboka amin'ny aotra.",
+                "link": "Hijery bebe kokoa"
+            },
+            "link": {
+                "title": "Rohy azo zaraina",
+                "description": "Ny pejy famaranana tsirairay dia misy rohy tokana, mora zaraina amin'ny namana, mpiara-miasa, na olon-tiana taloha.",
+                "link": "Hijery bebe kokoa"
+            },
+            "ai": {
+                "title": "Fanampiana AI",
+                "description": "AI no manampy anao hisafidy modely mifanaraka amin'ny toe-tsainao: 'Veloma malefaka', 'Fahatezerana', na 'Fialàna amin'ny kanto'.",
+                "link": "Hijery bebe kokoa"
+            }
+        },
+        "footer": {
+            "quote": "Satria misy zavatra tianao lazaina foana… alohan'ny handehanana."
+        }
+    },
+    "hori": {
+        "title": "Ny tenin'ny fiafarana",
+        "para": "Ao ambadiky ny fiafaran’ny tantara tsirairay dia misy tantara. Ireto ny olona sahy nanoratra sy nizara azy. Mivaingana, mihomehy, na mampihetsi-po — zava-dehibe ny fialàna tsirairay."
+    },
+    "exitPagesSection": {
+        "title": "Avelao ny varavarana hikatona mafy, fa aza adino ny marikao",
+        "description": "Nandeha izy ireo, fa ny pejiny dia mitoetra. Jereo ireo kanto feno drama, hatsikana, tononkalo na zava-miafina. Mety hitomany, hihomehy na hahazo menatra ianao. Fa mety ho mahafinaritra.",
+        "cards": {
+            "futureChronicles": {
+                "title": "Tantara Hoavy",
+                "description": "Dia iraisam-pirenena amin'ny tontolo iray izay miforitra amin'ny fihetseham-po ny fotoana.",
+                "studio": "Mada Films",
+                "date": "17 Mey 2025",
+                "button": "Hijery"
+            },
+            "lastSilence": {
+                "title": "Mangina Farany",
+                "description": "Thriller ara-tsaina momba ny hery miafina ao amin'ny tontolo feno resaka.",
+                "studio": "Silencio Studio",
+                "date": "02 Jona 2025",
+                "button": "Hijery"
+            },
+            "digitalRebirth": {
+                "title": "Fahaterahana Nomerika",
+                "description": "Rehefa mahita tononkalo ny intelligence artifisialy.",
+                "studio": "NeoVerse Production",
+                "date": "20 Jolay 2025",
+                "button": "Hijery"
+            }
+        }
+    },
+    "partener": "Mpiara-miombon'antoka",
+    "testimo": {
+        "tite": "Niala izy ireo — ary niseho",
+        "para": "Amin'ny TheEnd.page, ireo mpampiasa ireo dia nanova ny fiafarany ho fotoana tsy hay hadinoina. Indraindray mampihomehy, indraindray mampihetsi-po. Indro ny tantaran'izy ireo, ny pejiny, ary ny teniny."
+    },
+    "testimo-items": [
+        {
+            "name": "Camille R. — mpiasan'ny HR taloha",
+            "date": "19 Marsa 2025",
+            "text": "Tsy te hanatrika fety famaranana mampihomehy aho… Lasa be tao amin'ny birao ny pejiko tao anatin'ny 15 minitra. Mbola mihomehy izahay amin’ny WhatsApp!"
+        },
+        {
+            "name": "Lucas T. — mpiasa mahatsiaro reraka",
+            "date": "15 Marsa 2025",
+            "text": "Nampiasa TheEnd.page aho hialana amin'ny client mankarary. Nampifandray hatsikana sy hira izany. Nahafinaritra. Ary kanto."
+        }
+    ],
+    "contact": {
+        "title": "Afindrao amin’ny tavoahangy ny hafatrao",
+        "para": "Te handefa hafatra farany sa teny mahatsikaiky ve ianao ? Alefa. Tianay ny zava-mahagaga.",
+        "Name": "Anarana",
+        "send": "Alefa"
     }
 }
