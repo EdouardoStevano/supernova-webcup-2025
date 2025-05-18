@@ -1,53 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const LoaderPage = () => {
+    const lineRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const tl = gsap.timeline({ repeat: -1 });
+
+        // Create heartbeat wave animation
+        tl.to(lineRef.current, {
+            duration: 0.75,
+            backgroundPositionX: '200%',
+            ease: 'linear',
+        });
+    }, []);
+
     return (
-        <div className="bg-custom-dark-gray pointBackground flex h-screen w-screen flex-col items-center justify-center">
-            <svg width="200" height="200" viewBox="0 0 100 100">
-                {/* Bottle neck */}
-                <path
-                    d="M45,10 L55,10 L55,25 L45,25 Z"
-                    fill="none"
-                    stroke="#4F46E5"
-                    strokeWidth="2"
-                    className="animate-draw"
+        <div className="bg-custom-dark-gray pointBackground relative flex h-screen w-screen flex-col items-center justify-center overflow-hidden">
+            <div className="relative flex h-1 w-64 flex-col items-center">
+                <img
+                    src={'/favicon.svg'}
+                    alt="logo"
+                    className="relative bottom-30 w-30 animate-bounce"
+                    style={{
+                        animation: 'bounce 2s infinite',
+                    }}
                 />
-                {/* Bottle body */}
-                <path
-                    d="M35,25 L65,25 L60,90 L40,90 Z"
-                    fill="none"
-                    stroke="#4F46E5"
-                    strokeWidth="2"
-                    className="animate-draw"
+                <div
+                    ref={lineRef}
+                    className="absolute top-5 h-full w-1/2"
+                    style={{
+                        background:
+                            'linear-gradient(90deg, transparent 0%, #d85dc1 50%, transparent 100%)',
+                        backgroundSize: '200% 100%',
+                        backgroundPosition: '0% 0%',
+                    }}
                 />
-                {/* Liquid level */}
-                <path
-                    d="M40,60 L60,60"
-                    fill="none"
-                    stroke="#4F46E5"
-                    strokeWidth="2"
-                    className="animate-draw"
-                />
-            </svg>
-            <style jsx>{`
-                @keyframes draw {
-                    0% {
-                        stroke-dasharray: 0 300;
-                        stroke-dashoffset: 0;
-                    }
-                    50% {
-                        stroke-dasharray: 300 0;
-                        stroke-dashoffset: 0;
-                    }
-                    100% {
-                        stroke-dasharray: 300 0;
-                        stroke-dashoffset: -300;
-                    }
-                }
-                .animate-draw {
-                    animation: draw 3s ease-in-out infinite;
-                }
-            `}</style>
+            </div>
         </div>
     );
 };

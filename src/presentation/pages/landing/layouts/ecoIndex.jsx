@@ -55,6 +55,7 @@ const EcoIndex = () => {
                                     sustainability and eco-friendly practices
                                     helps create a better future for our planet.
                                 </p>
+                                <div id="ecoindex-badge"></div>
                             </motion.div>
                         )}
                     </motion.div>
