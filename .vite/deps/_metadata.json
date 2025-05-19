@@ -1,0 +1,133 @@
+{
+    "hash": "0ba9f284",
+    "configHash": "21fdbbc4",
+    "lockfileHash": "e3b0c442",
+    "browserHash": "aedfe37d",
+    "optimized": {
+        "react/jsx-dev-runtime": {
+            "src": "../../node_modules/react/jsx-dev-runtime.js",
+            "file": "react_jsx-dev-runtime.js",
+            "fileHash": "9658a17f",
+            "needsInterop": true
+        },
+        "react": {
+            "src": "../../node_modules/react/index.js",
+            "file": "react.js",
+            "fileHash": "dde8c97a",
+            "needsInterop": true
+        },
+        "react-dom/client": {
+            "src": "../../node_modules/react-dom/client.js",
+            "file": "react-dom_client.js",
+            "fileHash": "f7e20288",
+            "needsInterop": true
+        },
+        "i18next": {
+            "src": "../../node_modules/i18next/dist/esm/i18next.js",
+            "file": "i18next.js",
+            "fileHash": "56dbc7fd",
+            "needsInterop": false
+        },
+        "react-i18next": {
+            "src": "../../node_modules/react-i18next/dist/es/index.js",
+            "file": "react-i18next.js",
+            "fileHash": "2d12f249",
+            "needsInterop": false
+        },
+        "i18next-http-backend": {
+            "src": "../../node_modules/i18next-http-backend/esm/index.js",
+            "file": "i18next-http-backend.js",
+            "fileHash": "6e6f890d",
+            "needsInterop": false
+        },
+        "i18next-browser-languagedetector": {
+            "src": "../../node_modules/i18next-browser-languagedetector/dist/esm/i18nextBrowserLanguageDetector.js",
+            "file": "i18next-browser-languagedetector.js",
+            "fileHash": "9e517891",
+            "needsInterop": false
+        },
+        "framer-motion": {
+            "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+            "file": "framer-motion.js",
+            "fileHash": "04d20ca5",
+            "needsInterop": false
+        },
+        "lucide-react": {
+            "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+            "file": "lucide-react.js",
+            "fileHash": "b8136660",
+            "needsInterop": false
+        },
+        "react-router-dom": {
+            "src": "../../node_modules/react-router-dom/dist/index.mjs",
+            "file": "react-router-dom.js",
+            "fileHash": "3e4d64a2",
+            "needsInterop": false
+        },
+        "jwt-decode": {
+            "src": "../../node_modules/jwt-decode/build/esm/index.js",
+            "file": "jwt-decode.js",
+            "fileHash": "582b33be",
+            "needsInterop": false
+        },
+        "@react-three/fiber": {
+            "src": "../../node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+            "file": "@react-three_fiber.js",
+            "fileHash": "921d0096",
+            "needsInterop": false
+        },
+        "@react-three/drei": {
+            "src": "../../node_modules/@react-three/drei/index.js",
+            "file": "@react-three_drei.js",
+            "fileHash": "111fe472",
+            "needsInterop": false
+        },
+        "groq-sdk": {
+            "src": "../../node_modules/groq-sdk/index.mjs",
+            "file": "groq-sdk.js",
+            "fileHash": "b498e703",
+            "needsInterop": false
+        },
+        "three": {
+            "src": "../../node_modules/three/build/three.module.js",
+            "file": "three.js",
+            "fileHash": "16ff02a3",
+            "needsInterop": false
+        }
+    },
+    "chunks": {
+        "vision_bundle-3QUMERFG": {
+            "file": "vision_bundle-3QUMERFG.js"
+        },
+        "browser-ponyfill-UDWXRDDV": {
+            "file": "browser-ponyfill-UDWXRDDV.js"
+        },
+        "hls-PIAMTZVC": {
+            "file": "hls-PIAMTZVC.js"
+        },
+        "chunk-Y5A7JFWI": {
+            "file": "chunk-Y5A7JFWI.js"
+        },
+        "chunk-5H6BCXVW": {
+            "file": "chunk-5H6BCXVW.js"
+        },
+        "chunk-J3GJSMK3": {
+            "file": "chunk-J3GJSMK3.js"
+        },
+        "chunk-SEZZACAP": {
+            "file": "chunk-SEZZACAP.js"
+        },
+        "chunk-EUKJCQU4": {
+            "file": "chunk-EUKJCQU4.js"
+        },
+        "chunk-J7XUA7TT": {
+            "file": "chunk-J7XUA7TT.js"
+        },
+        "chunk-32E4H3EV": {
+            "file": "chunk-32E4H3EV.js"
+        },
+        "chunk-G3PMV62Z": {
+            "file": "chunk-G3PMV62Z.js"
+        }
+    }
+}

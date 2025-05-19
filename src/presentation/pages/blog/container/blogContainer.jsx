@@ -364,7 +364,7 @@ const BlogContainer = () => {
             <audio ref={sendAudio} src={audioNotification} preload="auto" />
             <audio ref={successAudio} src={audioNotification} preload="auto" />
             {/* Sidebar Discord */}
-            <aside
+            {/* <aside
                 style={{
                     width: 260,
                     background: '#1e1f22',
@@ -398,7 +398,7 @@ const BlogContainer = () => {
                 <div style={{ color: '#b5bac1', marginTop: 12, fontSize: 13 }}>
                     {posts.length} messages
                 </div>
-            </aside>
+            </aside> */}
             {/* Main content */}
             <main
                 style={{

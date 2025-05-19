@@ -9,7 +9,6 @@ import ListPage from './section/listPage';
 import Contact from './section/contact';
 import Testimonials from './section/testimonials';
 import MarqueePartener from './section/MarqueePartener';
-import AnimatedCursor from '../../../components/common/cursor';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -22,8 +21,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Landing = () => {
     return (
         <div className="overflow-hidden0 z-1 overflow-hidden text-gray-800">
-            <AnimatedCursor />
-
             {/* <section className="flex h-[110vh] flex-col items-center justify-center"> */}
             <Jumbotron />
             <Marquee />

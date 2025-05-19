@@ -35,7 +35,7 @@ const BuilderPage = () => {
                         AI Assistance
                     </Link>
                     <Link
-                        to="/video/ai"
+                        to="/video/ia"
                         className="transform rounded-lg bg-green-500 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:bg-green-600"
                     >
                         Video

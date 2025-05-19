@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-const navItems = [
-    { label: 'Accueil', icon: '🏠', link: '/blog/main' },
-    { label: 'Catégories', icon: '📚', link: 'categories' },
-    { label: 'À propos', icon: 'ℹ️', link: 'abouts' },
-];
+import { Link, useNavigate } from 'react-router-dom';
+const navItems = [{ label: 'Accueil', icon: '🏠', link: '/blog/main' }];
 
 const servers = [
     { name: 'S1', color: '#ce47bc' },
@@ -201,107 +197,117 @@ const BlogNavBar = () => {
                     justifyContent: 'space-between',
                 }}
             >
-                <div>
-                    <div
-                        style={{
-                            width: 48,
-                            height: 48,
-                            borderRadius: '50%',
-                            background: '#ce47bc',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            marginBottom: 24,
-                            fontSize: 28,
-                            color: '#fff',
-                            fontWeight: 'bold',
-                            letterSpacing: 1,
-                        }}
-                    >
-                        E
-                    </div>
-                    {navItems.map((item, idx) => (
+                <div className="flex h-full flex-col items-center justify-between">
+                    <div>
                         <div
-                            key={item.label}
                             style={{
-                                position: 'relative',
                                 width: 48,
                                 height: 48,
+                                borderRadius: '50%',
+                                background: '#ce47bc',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                marginBottom: 24,
+                                fontSize: 28,
+                                color: '#fff',
+                                fontWeight: 'bold',
+                                letterSpacing: 1,
                             }}
                         >
-                            <button
+                            E
+                        </div>
+                        {navItems.map((item, idx) => (
+                            <div
+                                key={item.label}
                                 style={{
-                                    background:
-                                        hovered === idx ? '#ce47bc' : 'none',
-                                    border: 'none',
-                                    outline: 'none',
+                                    position: 'relative',
                                     width: 48,
                                     height: 48,
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: hovered === idx ? '#fff' : '#b9bbbe',
-                                    fontSize: 24,
-                                    cursor: 'pointer',
-                                    transition:
-                                        'background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s',
-                                    boxShadow:
-                                        hovered === idx
-                                            ? '0 4px 16px #ce47bc44'
-                                            : 'none',
-                                    transform:
-                                        hovered === idx
-                                            ? 'scale(1.1)'
-                                            : 'scale(1)',
-                                    zIndex: 2,
                                 }}
-                                onClick={() => {
-                                    // Navigate to the corresponding page
-
-                                    navigate(item.link);
-                                }}
-                                onMouseEnter={() => setHovered(idx)}
-                                onMouseLeave={() => setHovered(null)}
-                                title={item.label}
                             >
-                                <span>{item.icon}</span>
-                            </button>
-                            <AnimatePresence>
-                                {hovered === idx && (
-                                    <motion.div
-                                        initial={{ opacity: 0, x: 10 }}
-                                        animate={{ opacity: 1, x: 56 }}
-                                        exit={{ opacity: 0, x: 10 }}
-                                        transition={{
-                                            type: 'spring',
-                                            stiffness: 400,
-                                            damping: 30,
-                                        }}
-                                        style={{
-                                            position: 'absolute',
-                                            left: 0,
-                                            top: '50%',
-                                            transform: 'translateY(-50%)',
-                                            marginLeft: 8,
-                                            background: '#fff',
-                                            color: '#23272a',
-                                            padding: '6px 16px',
-                                            borderRadius: '12px',
-                                            fontWeight: 600,
-                                            fontSize: 16,
-                                            boxShadow:
-                                                '0 2px 8px rgba(0,0,0,0.08)',
-                                            whiteSpace: 'nowrap',
-                                            zIndex: 1,
-                                        }}
-                                    >
-                                        {item.label}
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
+                                <button
+                                    style={{
+                                        background:
+                                            hovered === idx
+                                                ? '#ce47bc'
+                                                : 'none',
+                                        border: 'none',
+                                        outline: 'none',
+                                        width: 48,
+                                        height: 48,
+                                        borderRadius: '50%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        color:
+                                            hovered === idx
+                                                ? '#fff'
+                                                : '#b9bbbe',
+                                        fontSize: 24,
+                                        cursor: 'pointer',
+                                        transition:
+                                            'background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s',
+                                        boxShadow:
+                                            hovered === idx
+                                                ? '0 4px 16px #ce47bc44'
+                                                : 'none',
+                                        transform:
+                                            hovered === idx
+                                                ? 'scale(1.1)'
+                                                : 'scale(1)',
+                                        zIndex: 2,
+                                    }}
+                                    onClick={() => {
+                                        // Navigate to the corresponding page
+
+                                        navigate(item.link);
+                                    }}
+                                    onMouseEnter={() => setHovered(idx)}
+                                    onMouseLeave={() => setHovered(null)}
+                                    title={item.label}
+                                >
+                                    <span>{item.icon}</span>
+                                </button>
+                                <AnimatePresence>
+                                    {hovered === idx && (
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 10 }}
+                                            animate={{ opacity: 1, x: 56 }}
+                                            exit={{ opacity: 0, x: 10 }}
+                                            transition={{
+                                                type: 'spring',
+                                                stiffness: 400,
+                                                damping: 30,
+                                            }}
+                                            style={{
+                                                position: 'absolute',
+                                                left: 0,
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                marginLeft: 8,
+                                                background: '#fff',
+                                                color: '#23272a',
+                                                padding: '6px 16px',
+                                                borderRadius: '12px',
+                                                fontWeight: 600,
+                                                fontSize: 16,
+                                                boxShadow:
+                                                    '0 2px 8px rgba(0,0,0,0.08)',
+                                                whiteSpace: 'nowrap',
+                                                zIndex: 1,
+                                            }}
+                                        >
+                                            {item.label}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
+                    <Link to={'/'} className="text-white">
+                        Retour
+                    </Link>
                 </div>
             </nav>
             <aside
@@ -375,44 +381,6 @@ const BlogNavBar = () => {
                             </div>
                         ))}
                     </ul>
-                </div>
-
-                <div
-                    style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 16,
-                        background: '#23272a',
-                        borderRadius: 12,
-                        padding: '12px 16px',
-                        marginTop: 24,
-                    }}
-                >
-                    <img
-                        src={user.avatar}
-                        alt="avatar"
-                        style={{
-                            width: 48,
-                            height: 48,
-                            borderRadius: '50%',
-                            border: '2px solid #ce47bc',
-                        }}
-                    />
-                    <div style={{ flex: 1 }}>
-                        <div
-                            style={{
-                                color: '#fff',
-                                fontWeight: 'bold',
-                                fontSize: 16,
-                            }}
-                        >
-                            {user.name}
-                        </div>
-                        <div style={{ color: '#b9bbbe', fontSize: 13 }}>
-                            {user.email}
-                        </div>
-                    </div>
                 </div>
             </aside>
         </div>
